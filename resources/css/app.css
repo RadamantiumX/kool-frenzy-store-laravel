@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    .py-navbar-item {
+      @apply py-6
+    }
+  
+    .pt-navbar-item {
+      @apply pt-6
+    }
+  
+    .pb-navbar-item {
+      @apply pb-6
+    }
+  
+    .px-navbar-item {
+      @apply px-3
+    }
+  
+    .pl-navbar-item {
+      @apply pl-3
+    }
+  
+    .pr-navbar-item {
+      @apply pr-3
+    }
+  }
+  
+  @layer components {
+    .btn-primary {
+      @apply text-white bg-purple-600 py-2 px-4 rounded shadow-md hover:bg-purple-700 active:bg-purple-800 transition-colors;
+    }
+  }
+  
+  body {
+    background-color: #e5e7eb;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .wysiwyg-content h3,
+  .wysiwyg-content h4 {
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+  
+  .wysiwyg-content table > tbody > tr > td {
+    padding: 0.25rem 0.125rem;
+  }
+  
+  .wysiwyg-content table > tbody > tr > td:first-child {
+    font-weight: bold;
+  }
+  
+  .table > tbody > tr > td,
+  .table > thead > tr > th {
+    padding: 0.5rem;
+  }
+  
+  .table-sm > tbody > tr > td,
+  .table-sm > thead > tr > th {
+    padding: 0.25rem;
+  }
+  .logo-img-footer{
+    width: 65px;
+    height: 65px;
+  }
+
+  /* Logo WhatsApp */
+  .float{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:40px;
+    right:40px;
+    background-color:#25d366;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index:100;
+  }
+  
+  .my-float{
+    margin-top:16px;
+  }
