@@ -11,7 +11,7 @@
         cartItemsCount: {{ \App\Helpers\Cart::getCartItemsCount() }},
     }"
     @cart-change.window="cartItemsCount = $event.detail.count"
-    class="flex justify-between bg-slate-800 shadow-md text-white"
+    class="flex justify-between bg-black-100 shadow-md text-white"
 >
     <div>
         <a href="{{ route('home') }}" class="block py-navbar-item pl-5"> <img src="https://i.postimg.cc/3J2pcLrw/logo.png" class="logo-img" alt="Kool Frenzy Logo"/> </a>

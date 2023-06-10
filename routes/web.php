@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CartController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,10 +22,15 @@ use App\Http\Controllers\CartController;
     return view('welcome');
 });*/
 
+Route::get('/product/search',[ProductController::class,'search']);
+Route::get('/product/category',[ProductController::class,'category']);
+
+
 Route::middleware(['guestOrVerified'])->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('home');
     Route::get('/product/{product:slug}', [ProductController::class, 'view'])->name('product.view');
-   
+    
+
     Route::prefix('/cart')->name('cart.')->group(function () {
         Route::get('/', [CartController::class, 'index'])->name('index');
         Route::post('/add/{product:slug}', [CartController::class, 'add'])->name('add');
@@ -40,6 +48,7 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::post('/checkout/{order}', [CheckoutController::class, 'checkoutOrder'])->name('cart.checkout-order');
     Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
     Route::get('/checkout/failure', [CheckoutController::class, 'failure'])->name('checkout.failure');
+    Route::get('/checkout/pending', [CheckoutController::class, 'pendig'])->name('checkout.pending');
     Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
     Route::get('/orders/{order}', [OrderController::class, 'view'])->name('order.view');
 });

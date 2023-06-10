@@ -43,20 +43,20 @@
                     }
                 }" action="{{ route('profile.update') }}" method="post">
                     @csrf
-                    <h2 class="text-xl font-semibold mb-2">Profile Details</h2>
+                    <h2 class="text-xl font-semibold mb-2">Perfil del usuario</h2>
                     <div class="grid grid-cols-2 gap-3 mb-3">
                         <x-input
                             type="text"
                             name="first_name"
                             value="{{old('first_name', $customer->first_name)}}"
-                            placeholder="First Name"
+                            placeholder="Nombre"
                             class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded"
                         />
                         <x-input
                             type="text"
                             name="last_name"
                             value="{{old('last_name', $customer->last_name)}}"
-                            placeholder="Last Name"
+                            placeholder="Apellido"
                             class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded"
                         />
                     </div>
@@ -65,7 +65,7 @@
                             type="text"
                             name="email"
                             value="{{old('email', $user->email)}}"
-                            placeholder="Your Email"
+                            placeholder="Email"
                             class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded"
                         />
                     </div>
@@ -74,19 +74,19 @@
                             type="text"
                             name="phone"
                             value="{{old('phone', $customer->phone)}}"
-                            placeholder="Your Phone"
+                            placeholder="Telefono"
                             class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded"
                         />
                     </div>
 
-                    <h2 class="text-xl mt-6 font-semibold mb-2">Billing Address</h2>
+                    <h2 class="text-xl mt-6 font-semibold mb-2">Dirección de facturación</h2>
                     <div class="grid grid-cols-2 gap-3 mb-3">
                         <div>
                             <x-input
                                 type="text"
                                 name="billing[address1]"
                                 x-model="billingAddress.address1"
-                                placeholder="Address 1"
+                                placeholder="Dirección 1"
                                 class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded"
                             />
                         </div>
@@ -95,7 +95,7 @@
                                 type="text"
                                 name="billing[address2]"
                                 x-model="billingAddress.address2"
-                                placeholder="Address 2"
+                                placeholder="Dirección 2"
                                 class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded"
                             />
                         </div>
@@ -106,7 +106,7 @@
                                 type="text"
                                 name="billing[city]"
                                 x-model="billingAddress.city"
-                                placeholder="City"
+                                placeholder="Ciudad"
                                 class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded"
                             />
                         </div>
@@ -115,7 +115,7 @@
                                 type="text"
                                 name="billing[zipcode]"
                                 x-model="billingAddress.zipcode"
-                                placeholder="ZipCode"
+                                placeholder="Codigo Postal"
                                 class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded"
                             />
                         </div>
@@ -126,7 +126,7 @@
                                      name="billing[country_code]"
                                      x-model="billingAddress.country_code"
                                      class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded">
-                                <option value="">Select Country</option>
+                                <option value="">País de residencia</option>
                                 <template x-for="country of countries" :key="country.code">
                                     <option :selected="country.code === billingAddress.country_code"
                                             :value="country.code" x-text="country.name"></option>
@@ -139,7 +139,7 @@
                                          name="billing[state]"
                                          x-model="billingAddress.state"
                                          class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded">
-                                    <option value="">Select State</option>
+                                    <option value="">Estado o provincia</option>
                                     <template x-for="[code, state] of Object.entries(billingCountryStates)"
                                               :key="code">
                                         <option :selected="code === billingAddress.state"
@@ -152,7 +152,7 @@
                                     type="text"
                                     name="billing[state]"
                                     x-model="billingAddress.state"
-                                    placeholder="State"
+                                    placeholder="Estado o provincia"
                                     class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded"
                                 />
                             </template>
@@ -160,7 +160,7 @@
                     </div>
 
                     <div class="flex justify-between mt-6 mb-2">
-                        <h2 class="text-xl font-semibold">Shipping Address</h2>
+                        <h2 class="text-xl font-semibold">Dirección de envío</h2>
                         <label for="sameAsBillingAddress" class="text-gray-700">
                             <input @change="$event.target.checked ? shippingAddress = {...billingAddress} : ''"
                                    id="sameAsBillingAddress" type="checkbox"
@@ -173,7 +173,7 @@
                                 type="text"
                                 name="shipping[address1]"
                                 x-model="shippingAddress.address1"
-                                placeholder="Address 1"
+                                placeholder="Dirección 1"
                                 class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded"
                             />
                         </div>
@@ -182,7 +182,7 @@
                                 type="text"
                                 name="shipping[address2]"
                                 x-model="shippingAddress.address2"
-                                placeholder="Address 2"
+                                placeholder="dirección 2"
                                 class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded"
                             />
                         </div>
@@ -193,7 +193,7 @@
                                 type="text"
                                 name="shipping[city]"
                                 x-model="shippingAddress.city"
-                                placeholder="City"
+                                placeholder="Ciudad"
                                 class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded"
                             />
                         </div>
@@ -202,7 +202,7 @@
                                 name="shipping[zipcode]"
                                 x-model="shippingAddress.zipcode"
                                 type="text"
-                                placeholder="ZipCode"
+                                placeholder="Codigo Postal"
                                 class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded"
                             />
                         </div>
@@ -213,10 +213,13 @@
                                      name="shipping[country_code]"
                                      x-model="shippingAddress.country_code"
                                      class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded">
-                                <option value="">Select Country</option>
+                                <option value="">País de residencia</option>
                                 <template x-for="country of countries" :key="country.code">
-                                    <option :selected="country.code === shippingAddress.country_code"
+                                    @foreach ($countries as $country)
+                                        <option :selected="country.code === shippingAddress.country_code"
                                             :value="country.code" x-text="country.name"></option>
+                                    @endforeach
+                                    
                                 </template>
                             </x-input>
                         </div>
@@ -226,7 +229,7 @@
                                          name="shipping[state]"
                                          x-model="shippingAddress.state"
                                          class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded">
-                                    <option value="">Select State</option>
+                                    <option value="">Estado o provincia</option>
                                     <template x-for="[code, state] of Object.entries(shippingCountryStates)"
                                               :key="code">
                                         <option :selected="code === shippingAddress.state"
@@ -239,25 +242,25 @@
                                     type="text"
                                     name="shipping[state]"
                                     x-model="shippingAddress.state"
-                                    placeholder="State"
+                                    placeholder="Estado o provincia"
                                     class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded"
                                 />
                             </template>
                         </div>
                     </div>
 
-                    <x-button class="w-full">Update</x-button>
+                    <x-button class="w-full">Actualizar datos</x-button>
                 </form>
             </div>
             <div class="bg-white p-3 shadow rounded-lg">
                 <form action="{{route('profile_password.update')}}" method="post">
                     @csrf
-                    <h2 class="text-xl font-semibold mb-2">Update Password</h2>
+                    <h2 class="text-xl font-semibold mb-2">Cambiar contraseña</h2>
                     <div class="mb-3">
                         <x-input
                             type="password"
                             name="old_password"
-                            placeholder="Your Current Password"
+                            placeholder="Tu actual contraseña"
                             class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded"
                         />
                     </div>
@@ -265,7 +268,7 @@
                         <x-input
                             type="password"
                             name="new_password"
-                            placeholder="New Password"
+                            placeholder="Nueva contraseña"
                             class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded"
                         />
                     </div>
@@ -273,11 +276,11 @@
                         <x-input
                             type="password"
                             name="new_password_confirmation"
-                            placeholder="Repeat New Password"
+                            placeholder="Repita la nueva contraseña"
                             class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded"
                         />
                     </div>
-                    <x-button>Update</x-button>
+                    <x-button>Cambiar</x-button>
                 </form>
             </div>
         </div>

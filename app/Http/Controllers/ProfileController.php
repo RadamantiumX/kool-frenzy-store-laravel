@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\AddressType;
+use App\Http\Requests\PasswordUpdateRequest;
+use App\Http\Requests\ProfileRequest;
+use App\Models\Country;
+use App\Models\CustomerAddress;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -9,52 +14,78 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
+
 class ProfileController extends Controller
 {
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
+    public function view(Request $request)
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+        $user = $request->user();
+        
+        $customer = $user->customer;
+        
+        $shippingAddress = $user->customer->shippingAddress ?: new CustomerAddress(['type'=>AddressType::Shipping]);
+
+        $billingAddress = $customer->billingAddress ?: new CustomerAddress(['type'=>AddressType::Billing]);
+
+        $countries = Country::query()->orderBy('name')->get();
+        return view('profile.view',compact('customer','user','shippingAddress','billingAddress','countries'));
+
     }
 
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function store(ProfileRequest $request)
     {
-        $request->user()->fill($request->validated());
+        $customerData = $request->validated();
+        $shippingData = $customerData['shipping'];
+        $billingData = $customerData['billing'];
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        $user = $request->user();
+
+        $customer = $user->customer;
+
+        $customer->update($customerData);
+
+        if($customer->shippingAddress){
+            $customer->shippingAddress->update($shippingData);
+        }else{
+            $shippingData['customer_id'] = $customer->user_id;
+            $shippingData['type'] = AddressType::Shipping->value;
+            CustomerAddress::create($shippingData);
         }
 
-        $request->user()->save();
+        if($customer->billingAddress){
+            $customer->billingAddress->update($billingData);
+        }else{
+            $billingData['customer_id'] = $customer->user_id;
+            $billingData['type']= AddressType::Billing->value;
+            CustomerAddress::create($billingData);
+        }
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        $request->session()->flash('flash_message','Perfil actualizado');
+        return redirect()->route('profile');
     }
 
     /**
      * Delete the user's account.
      */
-    public function destroy(Request $request): RedirectResponse
+    public function passwordUpdate(PasswordUpdateRequest $request)
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
-        ]);
-
         $user = $request->user();
+        $passwordData = $request->validated();
 
-        Auth::logout();
+        $user->password = Hash::make($passwordData['new_password']);
 
-        $user->delete();
+        $user->save();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        $request->session()->flash('flash_message','Tu contraseña ha sido actualizada');
 
-        return Redirect::to('/');
+        return redirect()->route('profile');
     }
 }

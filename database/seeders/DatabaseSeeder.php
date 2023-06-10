@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Country;
 use App\Models\Product;
 use Illuminate\Database\Seeder;
 
@@ -15,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         
 
-       \App\Models\User::create([
+      \App\Models\User::create([
             'name' => 'Eduardo',
             'email'=> 'edu@example.com',
             'password' => bcrypt('admin123'),
@@ -23,8 +25,13 @@ class DatabaseSeeder extends Seeder
             'is_admin'=> true
         ]);
 
-        //Product::factory(30)->create();
+      // Product::factory(30)->create();
+       //Country::factory(10)->create();
 
+       /*Country::create(
+        ['code' => 'ARG', 'name' => 'Argentina']);*/
+       
+    
         
     }
 }

@@ -10,7 +10,10 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
-        "spatie/laravel-sluggable": "^3.4"
+        "mercadopago/dx-php": "^2.5",
+        "spatie/laravel-sluggable": "^3.4",
+        "symfony/http-client": "^6.3",
+        "symfony/postmark-mailer": "^6.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

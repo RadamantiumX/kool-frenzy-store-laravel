@@ -28,6 +28,11 @@
  .show{
   display: block;
  }
+ .link-p{
+   font-size: 20px;
+   font-weight: bold;
+   
+ }
  @media screen and (max-width: 500px){
   .logo-img{
     width: 28px;
@@ -37,7 +42,7 @@
 }
 </style>
 <!-- Navbar -->
-<nav class="nav-kf bg-gray-800"
+<nav class="nav-kf bg-gray-950"
 x-data="{
         mobileMenuOpen: false,
         cartItemsCount: {{ \App\Helpers\Cart::getCartItemsCount() }},
@@ -131,20 +136,29 @@ x-data="{
 
 <nav class="nav-kf-1 navbar navbar-light bg-light">
   <div class="container-fluid d-flex align-items-center">
-    <form class="d-flex input-group w-50">
+
+
+    <form class="d-flex input-group w-50" method="GET" action="/product/search">
+    @csrf
       <input
         type="search"
         class="form-control rounded w-10"
         placeholder="Buscar - Ej:'Remeras anime'"
         aria-label="Search"
         aria-describedby="search-addon"
+        name="search"
+        
       />
       <span class="input-group-text border-0" id="search-addon">
-       <a href="#"
-       
-       > <i class="fas fa-search"></i></a>
+       <button 
+       type="submit"
+       > <i class="fas fa-search"></i></button>
+
       </span>
     </form>
+
+
+
 
     
     <button
@@ -160,12 +174,18 @@ x-data="{
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link"  href="#">Remeras</a>
-        <a class="nav-link" href="#">Buzos</a>
-        <a class="nav-link" href="#">Personalizados</a>
-        <a class="nav-link"
-          >Diseños</a
-        >
+        <form class="navbar-nav" method="GET" action="/product/category">
+        @csrf
+          <input type="hidden" name="category" value="remera"/>
+        <button class="btn hover:bg-indigo-600 nav-link link-p"  type="submit">Remeras</a>
+       </form>
+
+       <form class=" navbar-nav" method="GET" action="/product/category">
+       @csrf
+       <input type="hidden" name="category" value="buzo"/>
+        <button class="btn hover:bg-indigo-600 nav-link link-p" type="submit">Buzos</button>
+      </form>
+       
       </div>
     </div>
 

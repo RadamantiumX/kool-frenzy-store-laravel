@@ -2,7 +2,7 @@
     <div class="w-[400px] mx-auto">
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
+            {{ __('Esta es un area segura de la aplicación, por favor,confirme su contraseña para continuar.') }}
         </div>
 
         <!-- Validation Errors -->
@@ -23,7 +23,7 @@
 
             <div class="flex justify-end mt-4">
                 <x-button>
-                    {{ __('Confirm') }}
+                    {{ __('Confirmar') }}
                 </x-button>
             </div>
         </form>

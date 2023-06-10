@@ -2,7 +2,7 @@
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
 
         <h2 class="text-2xl font-semibold text-center mb-5">
-            Enter your new password
+            Ingresa la nueva contraseña
         </h2>
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
@@ -38,7 +38,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <x-button>
-                    {{ __('Reset Password') }}
+                    {{ __('Reestablecer contraseña') }}
                 </x-button>
             </div>
         </form>

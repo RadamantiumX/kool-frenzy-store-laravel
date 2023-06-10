@@ -31,18 +31,18 @@
                     type="checkbox"
                     class="mr-3 rounded border-gray-300 text-purple-500 focus:ring-purple-500"
                 />
-                <label for="loginRememberMe">Remember Me</label>
+                <label for="loginRememberMe">Recordarme</label>
             </div>
             @if (Route::has('password.request'))
                 <a href="{{ route('password.request') }}" class="text-sm text-purple-700 hover:text-purple-600">
-                    Forgot Password?
+                    Olvidaste tu contraseña?
                 </a>
             @endif
         </div>
         <button
             class="btn-primary bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 w-full"
         >
-            Login
+            Ingresar
         </button>
     </form>
 </x-app-layout>

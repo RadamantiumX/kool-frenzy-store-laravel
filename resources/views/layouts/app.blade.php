@@ -20,6 +20,9 @@
   rel="stylesheet"
 />
 
+
+
+
 <!--Flowbite-->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
 <!--Flowbite-->
@@ -90,7 +93,7 @@
 
 
 <!-- Footer -->
-<footer class="text-center text-lg-start bg-slate-800 text-muted">
+<footer class="text-center text-lg-start bg-gray-950 text-muted">
   <!-- Section: Social media -->
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
     <!-- Left -->
@@ -212,7 +215,9 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.js"
 ></script>
 <!--/ MDB -->
-
+<!--MercadoPago-->
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+<!--MercadoPago-->
 <!--Flowbite-->
 <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>

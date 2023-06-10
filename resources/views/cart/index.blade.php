@@ -73,15 +73,19 @@
                             <span id="cartTotal" class="text-xl" x-text="`$${cartTotal}`"></span>
                         </div>
                         <p class="text-gray-500 mb-6">
-                        <i class="fa-solid fa-lock"></i> Compra protegida por Mercado pago
+                        <i class="fa-solid fa-lock"></i> Compra segura con Mercado pago <img src="https://i.postimg.cc/mrDNBpwr/icons8-mercado-pago-48.png" alt="icono mercado pago"/>
                         </p>
 
                         <form action="{{route('cart.checkout')}}" method="post">
                             @csrf
+                          
                             <button type="submit" class="btn-primary w-full py-3 text-lg">
                                 Proceder al pago <i class="fa-solid fa-credit-card"></i>
                             </button>
+                           
                         </form>
+
+
                     </div>
                 </div>
                 <!--/ Product Items -->

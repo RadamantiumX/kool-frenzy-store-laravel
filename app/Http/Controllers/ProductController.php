@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\ProductListResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -24,18 +25,28 @@ class ProductController extends Controller
         return view('product.view',['product'=>$product]);
     }
 
-    public function search()
+    public function search(Request $request)
     {
-        $perPage = request('per_page',6);
-        $search = request('search','');
-        $sortField = request('sort_field','created_at');
-        $sortDirection = request('sort_direction','desc');
+        $text = trim($request->input('search')) ;
 
-        $query = Product::query()
-           ->where('title','like',"%{$search}%")
-           ->orderBy($sortField,$sortDirection)
-           ->paginate($perPage);
+        $products = DB::table('products')
+               ->select('id','title','slug','description','image','description','price')
+               ->where('title','LIKE','%'.$text.'%')
+               ->orWhere('description','LIKE','%'.$text.'%')
+               ->orderBy('title','asc')
+               ->paginate(6);
+        return view('product.search',compact('products','text'));
+    }
 
-        return ProductListResource::collection($query);  
+    public function category(Request $request)
+    {
+        $text = trim($request->input('category')) ;
+
+        $products = DB::table('products')
+               ->select('id','title','slug','description','image','description','price')
+               ->where('category','LIKE','%'.$text.'%')
+               ->orderBy('title','asc')
+               ->paginate(8);
+        return view('product.category',compact('products','text'));
     }
 }
