@@ -14,9 +14,12 @@
     width: 300px;
     height: 200px;
   }
+  .product-title{
+    font-family: 'Permanent Marker', cursive;
+  }
 </style>
 <x-app-layout>
-@include('components.mid')
+@include('components.carousel')
 <?php if ($products->count() === 0): ?>
         <div class="text-center text-gray-600 py-16 text-xl">
             No hay productos publicados <i class="fa-solid fa-face-sad-tear"></i>
@@ -24,7 +27,7 @@
     <?php else: ?>
 <div class="bg-white">
   <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-    <h2 class="text-2xl font-bold tracking-tight text-gray-900">Mirá los diseños que ofrecemos</h2>
+    <h2 class="product-title text-2xl font-bold tracking-tight text-gray-900">Mirá todo lo que ofrecemos</h2>
 
 
    
@@ -72,5 +75,5 @@
   </div>
 </div>
 
-@include('components.carousel')
+@include('components.mid')
 </x-app-layout>

@@ -13,10 +13,10 @@ class Order extends Model
 
     protected $fillable = ['status','total_price','created_by','updated_by'];
 
-   /* public function isPaid()
+    public function isPaid()
     {
         return $this->hasOne(Payment::class);
-    }*/
+    }
 
     public function payment():HasOne
     {

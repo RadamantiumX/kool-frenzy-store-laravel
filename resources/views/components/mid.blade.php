@@ -1,11 +1,17 @@
 <style>
 .hero-icons-section{
-   height: 19vh;
+   height: 29vh;
+   background-image: linear-gradient(to top, rgba(50, 84, 168,0.404)0%,rgba(62, 50, 168,0.404)100%),url('https://i.postimg.cc/R0FVWGJ9/banner.jpg');
+     background-size: cover;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-position: center;
 } 
 .box-icons{
    display: flex;
    flex-direction: row;
    justify-content: center;
+   padding-top: 60px;
 }
 .inner-boxes-icons{
     display: flex;
@@ -15,22 +21,26 @@
     margin: 40px;
     margin-top: 32px;
 }
+.inner-boxes-icons p{
+   color: #fff;
+}
 .inner-boxes-icons h2{
    font-size: 25px;
    font-weight: bold;
-   background: -webkit-linear-gradient(rgb(20, 60, 24), rgb(21, 4, 4));
+   background: #fff;
+   font-family: 'Permanent Marker', cursive;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
  .mid-icons{
     font-size: 70px;
-    background: -webkit-linear-gradient(rgb(20, 60, 24), rgb(21, 4, 4));
+    background: #fff;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
  }
  
  h2 i{
-   color: green;
+   color: #fff;
    font-weight: bold;
    font-size: 27px;
  }
@@ -46,7 +56,7 @@
 }
 @media screen and (max-width: 500px){
   .hero-icons-section{
-    height: 120vh;
+    height: 160vh;
   }
   .box-icons{
   
@@ -68,9 +78,9 @@
           <p>Lo mejor en indumentaria, de primera selección.</p>
       </div>
        <div class="inner-boxes-icons">
-          <h2><i class="fa-regular fa-circle-check"></i> Pago seguro</h2>
+          <h2><i class="fa-regular fa-circle-check"></i> Compra segura</h2>
           <i class="mid-icons fa-solid fa-money-bill"></i>
-          <p>Transacciones seguras con <b>®Mercado Pago</b>.</p>
+          <p>Transacciones protegidas con <b>®Mercado Pago</b>.</p>
       </div>
    </div>  
 </div>

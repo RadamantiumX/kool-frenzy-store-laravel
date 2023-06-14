@@ -28,10 +28,16 @@
  .show{
   display: block;
  }
+ .un-show{
+  display: none;
+ }
  .link-p{
    font-size: 20px;
    font-weight: bold;
    
+ }
+ .menu-low{
+  display: none; 
  }
  @media screen and (max-width: 500px){
   .logo-img{
@@ -131,71 +137,150 @@ x-data="{
 
 </nav>
 
-
-<!-- Navbar -->
-
-<nav class="nav-kf-1 navbar navbar-light bg-light">
-  <div class="container-fluid d-flex align-items-center">
-
-
-    <form class="d-flex input-group w-50" method="GET" action="/product/search">
-    @csrf
-      <input
-        type="search"
-        class="form-control rounded w-10"
-        placeholder="Buscar - Ej:'Remeras anime'"
-        aria-label="Search"
-        aria-describedby="search-addon"
-        name="search"
+<div class="bg-white">
+  
+<header >
+    <nav class="flex items-center justify-between p-6 lg:px-8 h-5" aria-label="Global">
+      <div class="flex lg:flex-1">
         
-      />
-      <span class="input-group-text border-0" id="search-addon">
-       <button 
-       type="submit"
-       > <i class="fas fa-search"></i></button>
+      </div>
+      <div class="flex lg:hidden">
+        <button onclick="mDropBar()" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" id="user-button">
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+     
+      <div class="hidden lg:flex lg:gap-x-12">
 
-      </span>
-    </form>
-
-
-
-
-    
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-mdb-toggle="collapse"
-      data-mdb-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <form class="navbar-nav" method="GET" action="/product/category">
-        @csrf
-          <input type="hidden" name="category" value="remera"/>
-        <button class="btn hover:bg-indigo-600 nav-link link-p"  type="submit">Remeras</a>
-       </form>
-
-       <form class=" navbar-nav" method="GET" action="/product/category">
-       @csrf
-       <input type="hidden" name="category" value="buzo"/>
-        <button class="btn hover:bg-indigo-600 nav-link link-p" type="submit">Buzos</button>
+      <form method="GET" action="/product/category">
+            @csrf
+            <input type="hidden" name="category" id="category" value="remera"/>
+        <button href="#" type="submit" class="text-sm font-semibold leading-6 text-gray-900">Remeras</button>
       </form>
-       
+
+      <form method="GET" action="/product/category">
+            @csrf
+            <input type="hidden" name="category" id="category" value="buzo"/>
+        <button class="text-sm font-semibold leading-6 text-gray-900">Buzos</button>
+      </form>
+
+        <a href="{{route('design')}}" class="text-sm font-semibold leading-6 text-gray-900">Diseños</a>
+        <a href="{{route('contact')}}" class="text-sm font-semibold leading-6 text-gray-900">Contacto</a>
+      </div>
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        
+      </div>
+    </nav>
+
+    <!-- Mobile menu, show/hide based on menu open state. -->
+    <div class="menu-low" id="navigate" role="dialog" aria-modal="true">
+      <!-- Background backdrop, show/hide based on slide-over state. -->
+      <div class="fixed inset-0 z-50"></div>
+      <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <div class="flex items-center justify-between">
+          
+          <button id="close-btn" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+            <span class="sr-only">Close menu</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          
+        </div>
+        <div class="mt-6 flow-root">
+          <div class="-my-6 divide-y divide-gray-500/10">
+            <div class="space-y-2 py-6">
+
+            <form method="GET" action="/product/category">
+            @csrf
+            <input type="hidden" name="category" id="category" value="remera"/>
+              <button href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Remeras</button>
+            </form>
+
+            <form method="GET" action="/product/category">
+            @csrf
+            <input type="hidden" name="category" id="category" value="buzo"/>
+              <button href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Buzos</button>
+            </form>
+
+              <a href="{{route('design')}}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Diseños</a>
+              <a href="{{route('contact')}}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contacto</a>
+            </div>
+            <div class="py-6">
+              
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-  </div>
-</nav>
 
-<script>
-  let btn = document.querySelector('.menu-nav');
+  </header>
+ 
+</div>
+    <script>
+  let menu = document.querySelector('.menu-nav');
+  let y = document.getElementById("navigate");
 
-  function menuDropDown (){
-    btn.classList.toggle('show');
+  function menuDropDown(){
+      menu.classList.toggle('show');
   }
+
+  function mDropBar() {
+  var x = document.getElementById("navigate");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
+document.getElementById('close-btn').addEventListener('click',()=>{
+   y.style.display = "none";
+});
+
+
 </script>
+<!--nav class="down-bar navbar navbar-expand-sm navbar-dark bg-gray-700">
+  <div class="container-fluid">
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+
+          <form method="GET" action="/product/category">
+            @csrf
+          <a type="submit" class="nav-link" href="#">Remeras</a>
+         </form>
+
+        </li>
+        <li class="nav-item"> 
+
+        <form method="GET" action="/product/category">
+          @csrf
+          <a type="submit" class="nav-link" href="#">Buzos</a>
+        </form>
+
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Diseños</a>
+        </li>
+      </ul>
+
+      <form class="d-flex" method="GET" action="/product/search">
+        <input class="low-input form-control me-2" type="text" placeholder="Search">
+        <button class="btn btn-primary" type="submit">Buscar</button>
+      </form>
+
+    </div>
+  </div>
+</nav-->
+
+
+
