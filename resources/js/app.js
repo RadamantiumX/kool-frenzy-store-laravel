@@ -88,6 +88,22 @@ document.addEventListener("alpine:init", async () => {
       },
     };
   });
+
+ /* Alpine.data('rating',()=>({
+    rating:0,
+
+    setRating(star,productId){
+      this.rating = star;
+      post('/valoracion',{rating: this.rating,product_id:productId})
+       .then(result=>{
+        console.log(result.data.message);
+       })
+       .catch(error=>{
+        console.error(error.result.data)
+       })
+       ;
+    }
+  }));*/
 });
 
 

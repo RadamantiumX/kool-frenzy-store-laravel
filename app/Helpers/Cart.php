@@ -87,11 +87,7 @@ class Cart
         }
     }
 
-    /**
-     *
-     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
-     * @author Zura Sekhniashvili <zurasekhniashvili@gmail.com>
-     */
+    
     public static function getProductsAndCartItems(): array|\Illuminate\Database\Eloquent\Collection
     {
         $cartItems = self::getCartItems();

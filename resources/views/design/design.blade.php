@@ -57,7 +57,7 @@
             </div>
           </div>
 
-          <a href="#" class="inline-block rounded-md border border-transparent bg-gray-900 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700">Ver mas</a>
+          <a href="#" class="inline-block rounded-md border border-transparent bg-gray-900 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"><i class="fa-solid fa-plus"></i>  Ver mas</a>
         </div>
       </div>
     </div>

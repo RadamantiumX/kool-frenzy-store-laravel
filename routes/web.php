@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -24,16 +26,22 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });*/
 
-Route::get('/product/search',[ProductController::class,'search']);
-Route::get('/product/category',[ProductController::class,'category']);
+Route::get('/product/search',[ProductController::class,'search']);//Busqueda de productos
+Route::get('/product/category',[ProductController::class,'category']);//Busqueda por categoria (Remera o Buzo) 
 
 
 Route::middleware(['guestOrVerified'])->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('home');
-    Route::get('/product/{product:slug}', [ProductController::class, 'view'])->name('product.view');
+    Route::get('/product/{product:slug}', [ProductController::class, 'view'])->name('product.view');//Productos seleccionado
 
-    Route::get('/contact', [PageController::class, 'contact'])->name('contact');
-    Route::get('/design', [PageController::class, 'design'])->name('design');
+    
+
+
+    Route::get('/contact', [PageController::class, 'contact'])->name('contact');//Solo vista
+    Route::get('/design', [PageController::class, 'design'])->name('design');//Solo vista
+
+    Route::post('/contact',[MessageController::class,'store'])->name('message');//Para mensajes 
+    Route::post('/review',[ReviewController::class,'store'])->name('review');//Reviews
 
     Route::prefix('/cart')->name('cart.')->group(function () {
         Route::get('/', [CartController::class, 'index'])->name('index');
@@ -55,6 +63,7 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::get('/checkout/pending', [CheckoutController::class, 'pendig'])->name('checkout.pending');
     Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
     Route::get('/orders/{order}', [OrderController::class, 'view'])->name('order.view');
+    
 });
 
 require __DIR__.'/auth.php';
