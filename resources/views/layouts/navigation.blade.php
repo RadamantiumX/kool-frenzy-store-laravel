@@ -154,8 +154,9 @@ x-data="{
       </div>
      
       <div class="hidden lg:flex lg:gap-x-12">
-
+          
       <form method="GET" action="/product/category">
+      
             @csrf
             <input type="hidden" name="category" id="category" value="remera"/>
         <button href="#" type="submit" class="text-sm font-semibold leading-6 text-gray-900">Remeras</button>
@@ -169,6 +170,11 @@ x-data="{
 
         <a href="{{route('design')}}" class="text-sm font-semibold leading-6 text-gray-900">Diseños</a>
         <a href="{{route('contact')}}" class="text-sm font-semibold leading-6 text-gray-900">Contacto</a>
+
+        <form method="GET" action="/product/tendence">
+          @csrf
+        <button type="submit" class="text-sm font-semibold leading-6 text-gray-900">Tendencias</button>
+       </form>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
         
@@ -193,14 +199,16 @@ x-data="{
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
-
+            <form method="GET" action="/product/tendence">
+            <button type="submit" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Tendencias</button>
+            </form>
             <form method="GET" action="/product/category">
             @csrf
             <input type="hidden" name="category" id="category" value="remera"/>
               <button href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Remeras</button>
             </form>
 
-            <form method="GET" action="/product/category">
+            <form method="GET" action="/product/category" class="">
             @csrf
             <input type="hidden" name="category" id="category" value="buzo"/>
               <button href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Buzos</button>
@@ -208,6 +216,7 @@ x-data="{
 
               <a href="{{route('design')}}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Diseños</a>
               <a href="{{route('contact')}}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contacto</a>
+              
             </div>
             <div class="py-6">
               
@@ -244,43 +253,7 @@ document.getElementById('close-btn').addEventListener('click',()=>{
 
 
 </script>
-<!--nav class="down-bar navbar navbar-expand-sm navbar-dark bg-gray-700">
-  <div class="container-fluid">
-    
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="mynavbar">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
 
-          <form method="GET" action="/product/category">
-            @csrf
-          <a type="submit" class="nav-link" href="#">Remeras</a>
-         </form>
-
-        </li>
-        <li class="nav-item"> 
-
-        <form method="GET" action="/product/category">
-          @csrf
-          <a type="submit" class="nav-link" href="#">Buzos</a>
-        </form>
-
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">Diseños</a>
-        </li>
-      </ul>
-
-      <form class="d-flex" method="GET" action="/product/search">
-        <input class="low-input form-control me-2" type="text" placeholder="Search">
-        <button class="btn btn-primary" type="submit">Buscar</button>
-      </form>
-
-    </div>
-  </div>
-</nav-->
 
 
 

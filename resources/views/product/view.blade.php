@@ -8,6 +8,15 @@
     .send-button-review {
         margin-top: 20px;
     }
+    .non-comments{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .non-comments h4{
+        font-size: 30px;
+    }
+   
 </style>
 <x-app-layout>
     <div x-data="productItem({{ json_encode([
@@ -163,6 +172,87 @@
             </div>
         </div>
     </div>
+    @if ($reviews->isEmpty())
+     <div class="non-comments">
+       <h4>No hay reseñas de este artículo... <i class="fa-solid fa-ghost"></i></h4>
+       <p>Se el primero en calificarlo...<i class="fa-solid fa-face-smile"></i></p>
+    </div>
+    @else
+       
+    <div class="reviews bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:mx-0">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Algunas opiniones acerca de este artículo</h2>
+      <p class="mt-2 text-lg leading-8 text-gray-600">Podes dejarnos tu reseña para poder seguir mejorando nuestro arte... <i class="fa-regular fa-face-kiss-wink-heart"></i></p>
+    </div>
+    
+    @foreach ($reviews as $review)
+        
+    
+
+    <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+      <article class="flex max-w-xl flex-col items-start justify-between">
+        
+        <div class="group relative">
+          <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+            @switch($review->rating)
+                    @case(1)
+                    <i class="fa-solid fa-star"></i>
+                    @break
+
+                    @case(2)
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    @break
+                    
+                    @case(3)
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    @break
+
+                    @case(4)
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    @break
+
+                    @case(5)
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    @break                
+            
+                @default
+                    
+            @endswitch
+          </h3>
+          <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{{$review->message}}</p>
+        </div>
+        <div class="relative mt-8 flex items-center gap-x-4">
+          
+          <div class="text-sm leading-6">
+            <p class="font-semibold text-gray-900">
+             
+                <span class="absolute inset-0"></span>
+                Creado el:
+             
+            </p>
+            <p class="text-gray-600">{{$review->created_at}}</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- More posts... -->
+    </div>
+    @endforeach
+  </div>
+</div>
+    @endif
+    
 
 </x-app-layout>
 <script>

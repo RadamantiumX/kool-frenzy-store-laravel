@@ -19,7 +19,9 @@ class ReviewResource extends JsonResource
             
             'product_id'=>$this->product_id,
 
-            'message'=>$this->message
+            'message'=>$this->message,
+
+            'created_at'=> (new \DateTime($this->created_at))->format('D-m-y H:i:s'),
         ];
     }
 }

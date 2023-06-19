@@ -31,11 +31,23 @@ class ReviewController extends Controller
     $review->rating = $request->rating;
     $review->message = $request->message;
     $review->save();
-   
+    
+    //Contamos los registros de este producto
+    $contar=DB::table('reviews')
+       ->where(['product_id'=>$request->product_id])
+       ->count();
+    //Sumamos los registros de la columna "rating" para este producto   
+    $sumar = DB::table('reviews')
+      ->where(['product_id'=>$request->product_id])
+       ->sum('rating');
+    
+    //Calculamos el promedio de valoracion de este producto   
+    $promedio = $sumar / $contar;
+
     //Actualizamos el valor de "review" en productos
     DB::table('products')
      ->where(['id'=>$request->product_id])
-     ->update(['review'=>$request->rating]);
+     ->update(['review'=>$promedio]);
     
         
     return redirect()->back()->with('success', '¡Valoración agregada con éxito!... Muchas Gracias');

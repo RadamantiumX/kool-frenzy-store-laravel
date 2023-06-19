@@ -67,11 +67,42 @@
           </div>
           <p class="text-sm font-medium text-gray-900">${{ $product->price }}</p>
         </div>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+          @switch($product->review)
+            @case(1)
+            <i class="fa-solid fa-star"></i>
+              @break
+
+            @case(2)
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+              @break
+
+            @case(3)
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+              @break 
+              
+            @case(4)
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+              @break
+
+            @case(5)
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+              
+              @break   
+          
+            @default
+              <p>Sin calificar</p>
+          @endswitch
+              
         <div class="flex justify-between py-3 px-4">
                         <button class="btn-primary" @click="addToCart()">
                             Ver <i class="fa-solid fa-eye"></i>

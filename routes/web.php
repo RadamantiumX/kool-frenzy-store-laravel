@@ -26,9 +26,10 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });*/
 
+//Busquedas por preferencias
 Route::get('/product/search',[ProductController::class,'search']);//Busqueda de productos
 Route::get('/product/category',[ProductController::class,'category']);//Busqueda por categoria (Remera o Buzo) 
-
+Route::get('/product/tendence',[ProductController::class,'tendence']);//Busqueda por categoria (Remera o Buzo) 
 
 Route::middleware(['guestOrVerified'])->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('home');

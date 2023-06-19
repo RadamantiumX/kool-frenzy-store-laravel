@@ -25,6 +25,7 @@ class ProductResource extends JsonResource
             'published'=>(bool)$this->published,
             'created_at'=> (new \DateTime($this->created_at))->format('d-m-Y H:i:s'),
             'updated_at'=> (new \DateTime($this->updated_at))->format('d-m-Y H:i:s'),
+            'review' =>$this->review
         ];
     }
 }

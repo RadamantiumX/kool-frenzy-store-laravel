@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ProductListResource;
+use App\Http\Resources\ReviewResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -22,7 +23,16 @@ class ProductController extends Controller
 
     public function view(Product $product)
     {
-        return view('product.view',['product'=>$product]);
+        $query= DB::table('reviews')
+         ->select('rating','message','created_at')
+         ->where(['product_id'=>$product->id])
+         ->latest()
+         ->take(3)
+         ->get();
+         
+        $reviews = ReviewResource::collection($query); 
+      
+        return view('product.view',['product'=>$product,'reviews'=>$reviews]);
     }
 
     public function search(Request $request)
@@ -43,10 +53,22 @@ class ProductController extends Controller
         $text = trim($request->input('category')) ;
 
         $products = DB::table('products')
-               ->select('id','title','slug','description','image','description','price')
+               ->select('id','title','slug','description','image','description','price','review')
                ->where('category','LIKE','%'.$text.'%')
                ->orderBy('title','asc')
                ->paginate(8);
         return view('product.category',compact('products','text'));
+    }
+
+    public function tendence()
+    {
+        $products = DB::table('products')
+        ->select('id','title','slug','description','image','description','price','review')
+        ->where('review','>=',4)
+        ->orderBy('title','asc')
+        ->take(8)
+        ->get();
+
+        return view('product.tendence',compact('products'));
     }
 }

@@ -17,13 +17,13 @@ class DatabaseSeeder extends Seeder
     {
         
 
-      /*\App\Models\User::create([
+      \App\Models\User::create([
             'name' => 'Eduardo',
             'email'=> 'edu@example.com',
             'password' => bcrypt('admin123'),
             'email_verified_at'=> now(),
             'is_admin'=> true
-        ]);*/
+        ]);
 
        Product::factory(30)->create();
        //Country::factory(10)->create();
