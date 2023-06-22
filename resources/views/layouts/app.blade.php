@@ -36,6 +36,9 @@
         [x-cloak] {
             display: none !important;
         }
+        .font-site{
+          font-family: 'Permanent Marker', cursive;
+        }
        
     </style>
 </head>
@@ -90,7 +93,7 @@
 </div>
 <!--/ Toast -->
 
-
+@include('layouts.instagram')
 
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-gray-950 text-muted">
@@ -98,7 +101,7 @@
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
     <!-- Left -->
     <div class="me-5 d-none d-lg-block">
-      <span>Seguinos en nuestras redes sociales:</span>
+      <span class="font-site">Todas nuestras redes sociales:</span>
     </div>
     <!-- Left -->
 
@@ -148,29 +151,53 @@
         <!-- Grid column -->
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Productos y servicios
+          <h6 class="font-site text-uppercase fw-bold mb-4">
+            Contenido
           </h6>
-          <p>
-            <a href="#!" class="text-reset">Remeras</a>
+
+          <p class="text-reset">
+            <form action="/product/index" method="GET">
+              @csrf 
+            <button class="text-reset">Productos</button>           
+        </form>
+         </p>
+
+           <p class="text-reset">
+          <form action="/product/category" method="GET">
+            @csrf              
+            <input type="hidden" name="category" id="category" value="remera"/>
+            <button  class="text-reset">Remeras</button>     
+         </form>
+        </p> 
+
+
+          <p class="text-reset">
+            <form action="/product/category" method="GET">
+            @csrf  
+            <input type="hidden" name="category" id="category" value="buzo"/>
+            <button  type="submit" class="text-reset">Buzos</button>   
+          </form>
           </p>
           <p>
-            <a href="#!" class="text-reset">Buzos</a>
-          </p>
+            <a href="{{route('contact')}}" class="text-reset">Hablemos</a>
+         </p>
           <p>
-            <a href="#!" class="text-reset">Personalizados</a>
+            <a href="{{route('design')}}" class="text-reset">Diseños</a>
           </p>
+          <form action="/product/tendence" method="GET">
+            @csrf
           <p>
-            <a href="#!" class="text-reset">Diseños</a>
+            <button href="#" class="text-reset">Tendencias</button>         
           </p>
+        </form>
         </div>
         <!-- Grid column -->
 
         <!-- Grid column -->
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Links
+          <h6 class="font-site text-uppercase fw-bold mb-4">
+            Legales
           </h6>
           <p>
             <a href="#!" class="text-reset">Term. y Condiciones</a>
@@ -185,7 +212,7 @@
         <!-- Grid column -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <h6 class="font-site text-uppercase fw-bold mb-4">Contacto</h6>
           <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
           <p>
             <i class="fas fa-envelope me-3"></i>
@@ -203,8 +230,8 @@
 
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2023 Copyright:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Epsiweb</a>
+    © 2023 Copyright: Design by
+    <a class="text-reset fw-bold" href="https://epsiweb.com/" target="new">Epsiweb</a>
   </div>
   <!-- Copyright -->
 </footer>

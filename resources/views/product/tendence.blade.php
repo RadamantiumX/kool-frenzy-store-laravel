@@ -1,7 +1,7 @@
 <style>
 .card-p{
     border: solid 1px #b6c2b9;
-    
+    border-radius: 10px;
   }
   .boxes{
     padding: 7px;
@@ -10,12 +10,13 @@
     font-family: 'Permanent Marker', cursive
   }
   .tendence-section{
-    background-image: linear-gradient(to top, rgba(50, 84, 168,0.404)0%,rgba(62, 50, 168,0.404)100%),url('https://i.postimg.cc/9M10vFss/pexels-martin-p-chy-304664.jpg');
-     background-size: cover;
-     background-repeat: no-repeat;
-     
-     background-position: center;
+    background-image: url('https://i.postimg.cc/Gt2z2tph/18755.jpg');
+    background-size: cover;
+   background-repeat: no-repeat;
+   
+   background-position: center;
   }
+  
 </style>
 <x-app-layout>
 <?php if ($products->count() === 0): ?>
@@ -23,7 +24,7 @@
          No hay resultados en la busqueda...
     </div>
 <?php else: ?>
-    <div class="tendence-section mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+    <div class="tendence-section bg-gray-100 tendence-section mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
     <h2 class="tendence-title text-2xl font-bold tracking-tight text-gray-900">Estas son las últimas tendencias</h2>
     <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
     @foreach ($products as $product)
@@ -41,7 +42,7 @@
                {{ substr($product->title,0,8) }}
               </a>
             </h3>
-            <p class="mt-1 text-sm text-gray-500">{{ substr($product->description,0,8)}} </p>
+            <p class="mt-1 text-sm text-gray-600">{{ substr($product->description,0,8)}} </p>
           </div>
           <p class="text-sm font-medium text-gray-900">${{ $product->price }}</p>
         </div>

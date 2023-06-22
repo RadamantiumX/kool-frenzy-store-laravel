@@ -1,4 +1,19 @@
+<style>
+    .profile-title{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-title h3{
+        font-family: 'Permanent Marker', cursive;
+        font-size: 25px;
+    }
+</style>
+
 <x-app-layout>
+    <div class="profile-title"><h3>Panel del usuario</h3></div>
+    
     <div x-data="{
             flashMessage: '{{\Illuminate\Support\Facades\Session::get('flash_message')}}',
             init() {
@@ -43,7 +58,7 @@
                     }
                 }" action="{{ route('profile.update') }}" method="post">
                     @csrf
-                    <h2 class="text-xl font-semibold mb-2">Perfil del usuario</h2>
+                    <h2 class="text-xl font-semibold mb-2">Tu perfil</h2>
                     <div class="grid grid-cols-2 gap-3 mb-3">
                         <x-input
                             type="text"
@@ -164,7 +179,7 @@
                         <label for="sameAsBillingAddress" class="text-gray-700">
                             <input @change="$event.target.checked ? shippingAddress = {...billingAddress} : ''"
                                    id="sameAsBillingAddress" type="checkbox"
-                                   class="text-purple-600 focus:ring-purple-600 mr-2"> Same as Billing
+                                   class="text-purple-600 focus:ring-purple-600 mr-2"> El mismo que la facturación
                         </label>
                     </div>
                     <div class="grid grid-cols-2 gap-3 mb-3">
@@ -249,7 +264,7 @@
                         </div>
                     </div>
 
-                    <x-button class="w-full">Actualizar datos</x-button>
+                    <x-button class="w-full"><i class="fa-solid fa-arrows-rotate"></i>  Actualizar datos</x-button>
                 </form>
             </div>
             <div class="bg-white p-3 shadow rounded-lg">
@@ -280,7 +295,7 @@
                             class="w-full focus:border-purple-600 focus:ring-purple-600 border-gray-300 rounded"
                         />
                     </div>
-                    <x-button>Cambiar</x-button>
+                    <x-button><i class="fa-solid fa-arrows-rotate"></i>  Cambiar</x-button>
                 </form>
             </div>
         </div>

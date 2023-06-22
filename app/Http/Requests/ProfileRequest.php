@@ -28,14 +28,14 @@ class ProfileRequest extends FormRequest
             'email' => ['required', 'email'],
 
             'shipping.address1' => ['required'],
-            'shipping.address2' => ['required'],
+            'shipping.address2' => ['nullable'],
             'shipping.city' => ['required'],
             'shipping.state' => ['required'],
             'shipping.zipcode' => ['required'],
             'shipping.country_code' => ['required', 'exists:countries,code'],
 
             'billing.address1' => ['required'],
-            'billing.address2' => ['required'],
+            'billing.address2' => ['nullable'],
             'billing.city' => ['required'],
             'billing.state' => ['required'],
             'billing.zipcode' => ['required'],

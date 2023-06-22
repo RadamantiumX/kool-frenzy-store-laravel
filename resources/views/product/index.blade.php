@@ -2,6 +2,11 @@
 /** @var \Illuminate\Database\Eloquent\Collection $products */
 ?>
 <style>
+  .index-section{
+    background-image: url('https://i.postimg.cc/HkxZz8ST/5855.jpg');
+   background-size: cover;
+   background-repeat: no-repeat
+  }
   .img-small-section{
     margin-top: 50px;
   }
@@ -19,7 +24,7 @@
   }
   .card-p{
     border: solid 1px #b6c2b9;
-    
+    border-radius: 10px;
   }
   .boxes{
     padding: 7px;
@@ -27,15 +32,15 @@
 
 </style>
 <x-app-layout>
-@include('components.carousel')
+
 <?php if ($products->count() === 0): ?>
         <div class="text-center text-gray-600 py-16 text-xl">
             No hay productos publicados <i class="fa-solid fa-face-sad-tear"></i>
         </div>
     <?php else: ?>
-<div class="bg-white">
+<div class="index-section bg-white">
   <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-    <h2 class="product-title text-2xl font-bold tracking-tight text-gray-900">Mirá todo lo que ofrecemos</h2>
+    <h2 class="product-title text-2xl font-bold tracking-tight text-gray-900">Podes elegir lo que mas te gusta...</h2>
 
 
    
@@ -120,5 +125,5 @@
   </div>
 </div>
 
-@include('components.mid')
+
 </x-app-layout>

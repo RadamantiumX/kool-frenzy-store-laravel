@@ -35,7 +35,13 @@
   }
   
   body {
-    background-color: #e5e7eb;
+    
+      background-image: linear-gradient(to top, rgba(197, 195, 218, 0.932)0%,rgba(245, 239, 239, 0.932)100%);
+   background-size: cover;
+   background-repeat: no-repeat;
+   
+   background-position: center;
+  
     font-family: 'Roboto', sans-serif;
   }
   

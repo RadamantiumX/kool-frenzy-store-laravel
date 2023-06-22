@@ -154,6 +154,12 @@ x-data="{
       </div>
      
       <div class="hidden lg:flex lg:gap-x-12">
+      <form method="GET" action="/product/index">
+      
+      @csrf
+      <input type="hidden" name="category" id="category" value="remera"/>
+  <button href="#" type="submit" class="text-sm font-semibold leading-6 text-gray-900">Productos</button>
+</form>
           
       <form method="GET" action="/product/category">
       
@@ -169,7 +175,7 @@ x-data="{
       </form>
 
         <a href="{{route('design')}}" class="text-sm font-semibold leading-6 text-gray-900">Diseños</a>
-        <a href="{{route('contact')}}" class="text-sm font-semibold leading-6 text-gray-900">Contacto</a>
+        <a href="{{route('contact')}}" class="text-sm font-semibold leading-6 text-gray-900">Hablemos</a>
 
         <form method="GET" action="/product/tendence">
           @csrf
@@ -199,6 +205,9 @@ x-data="{
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
+            <form method="GET" action="/product/index">
+            <button type="submit" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Productos</button>
+            </form>
             <form method="GET" action="/product/tendence">
             <button type="submit" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Tendencias</button>
             </form>
@@ -215,7 +224,7 @@ x-data="{
             </form>
 
               <a href="{{route('design')}}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Diseños</a>
-              <a href="{{route('contact')}}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contacto</a>
+              <a href="{{route('contact')}}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Hablemos</a>
               
             </div>
             <div class="py-6">

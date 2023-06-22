@@ -1,16 +1,25 @@
+<style>
+    .order-title{
+        font-family: 'Permanent Marker', cursive;
+    }
+</style>
 <x-app-layout>
 <div class="container mx-auto lg:w-2/3 p-5">
-        <h1 class="text-3xl font-bold mb-2">My Orders</h1>
+        <h1 class="order-title text-3xl font-bold mb-2">Mis pedidos</h1>
+        @if ($orders->isEmpty())
+           <div>No hay pedidos realizados...</div> 
+        @else
+
         <div class="bg-white rounded-lg p-3 overflow-x-auto">
             <table class="table-auto w-full">
                 <thead>
                 <tr class="border-b-2">
-                    <th class="text-left p-2">Order #</th>
-                    <th class="text-left p-2">Date</th>
+                    <th class="text-left p-2">Pedido #</th>
+                    <th class="text-left p-2">Fecha</th>
                     <th class="text-left p-2">Status</th>
                     <th class="text-left p-2">SubTotal</th>
-                    <th class="text-left p-2">Items</th>
-                    <th class="text-left p-2">Actions</th>
+                    <th class="text-left p-2">Artículo</th>
+                    <th class="text-left p-2">Entrega</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -69,6 +78,7 @@
         <div class="mt-3">
             {{ $orders->links() }}
         </div>
+        @endif
     </div>
 </x-app-layout>
 

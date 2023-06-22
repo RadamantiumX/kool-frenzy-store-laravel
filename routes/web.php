@@ -30,9 +30,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/product/search',[ProductController::class,'search']);//Busqueda de productos
 Route::get('/product/category',[ProductController::class,'category']);//Busqueda por categoria (Remera o Buzo) 
 Route::get('/product/tendence',[ProductController::class,'tendence']);//Busqueda por categoria (Remera o Buzo) 
+Route::get('/product/index',[ProductController::class,'index']);//Todos los productos 
 
 Route::middleware(['guestOrVerified'])->group(function () {
-    Route::get('/', [ProductController::class, 'index'])->name('home');
+    Route::get('/', [ProductController::class, 'latest'])->name('home');
     Route::get('/product/{product:slug}', [ProductController::class, 'view'])->name('product.view');//Productos seleccionado
 
     

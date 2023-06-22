@@ -1,10 +1,10 @@
 <style>
 .hero-icons-section{
    height: 29vh;
-   background-image: linear-gradient(to top, rgba(50, 84, 168,0.404)0%,rgba(62, 50, 168,0.404)100%),url('https://i.postimg.cc/R0FVWGJ9/banner.jpg');
+   /*background-image: linear-gradient(to top, rgba(50, 84, 168,0.404)0%,rgba(62, 50, 168,0.404)100%),url('https://i.postimg.cc/R0FVWGJ9/banner.jpg');*/
      background-size: cover;
-     background-repeat: no-repeat;
-     background-attachment: fixed;
+    /* background-repeat: no-repeat;
+     background-attachment: fixed;*/
      background-position: center;
 } 
 .box-icons{
@@ -65,7 +65,7 @@
 }
 }
 </style>
-<div class="hero-icons-section">
+<div class="bg-gray-900 hero-icons-section">
    <div class="box-icons">
       <div class="inner-boxes-icons">
           <h2><i class="fa-regular fa-circle-check"></i> Diseños únicos</h2>
@@ -80,7 +80,7 @@
        <div class="inner-boxes-icons">
           <h2><i class="fa-regular fa-circle-check"></i> Compra segura</h2>
           <i class="mid-icons fa-solid fa-money-bill"></i>
-          <p>Transacciones protegidas con <b>®Mercado Pago</b>.</p>
+          <p>Transacciones protegidas con <b>Mercado Pago®</b>.</p>
       </div>
    </div>  
 </div>
