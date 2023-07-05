@@ -7,22 +7,12 @@ use App\Http\Resources\MessageResource;
 use App\Models\Message;
 use Illuminate\Http\Request;
 
-
+//Solo se utiliza el STORE porque es del sitio web ver API
 class MessageController extends Controller
 {
     public function index()
     {
-        $perPage = request('per_page',10);
-        $search = request('search','');
-        $sortField = request('sort_field','created_at');
-        $sortDirection = request('sort_direction','desc');
-
-        $query = Message::query()
-           ->where('title','like',"%{$search}%")
-           ->orderBy($sortField,$sortDirection)
-           ->paginate($perPage);
-
-        return MessageResource::collection($query);
+        
 
 
     }
@@ -43,8 +33,6 @@ class MessageController extends Controller
     }
     public function destroy(Message $message)
     {
-         $message->delete();
-
-         return response()->noContent();
+         
     }
 }

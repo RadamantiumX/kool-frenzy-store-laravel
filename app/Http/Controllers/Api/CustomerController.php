@@ -3,41 +3,44 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\MessageResource;
-use App\Models\Message;
+use App\Http\Resources\CustomerListResource;
+use App\Http\Resources\CustomerResource;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
-
-class MessageController extends Controller
+class CustomerController extends Controller
 {
     public function index()
     {
-        $perPage = request('per_page',5);
+        $perPage = request('per_page',10);
         $search = request('search','');
         $sortField = request('sort_field','created_at');
         $sortDirection = request('sort_direction','desc');
 
-        $query = Message::query()
+        $query = Customer::query()
           ->orderBy($sortField,$sortDirection)
           ->paginate($perPage);
 
-       return MessageResource::collection($query);   
+       return CustomerListResource::collection($query);
+
     }
     public function store()
     {
-
+        
     }
-    public function show()
+    public function show(Customer $customer)
     {
-
+        return new CustomerResource($customer);
+        
     }
     public function update()
     {
-
+        
     }
-    public function destroy(Message $message)
+    public function destroy(Customer $customer)
     {
-        $message->delete();
+        $customer->delete();
+
         return response()->noContent();
     }
 }

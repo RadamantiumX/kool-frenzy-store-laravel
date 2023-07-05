@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Nette\Utils\DateTime;
+use Illuminate\Support\Facades\Storage;
 
 
 class OrderResource extends JsonResource
@@ -16,7 +17,7 @@ class OrderResource extends JsonResource
      */
 
      public static $wrap = false;
-    public function toArray(Request $request): array
+    public function toArray($request)
     {
         $customer = $this->user->customer;
         $shipping = $customer->shippingAddress;
@@ -62,8 +63,8 @@ class OrderResource extends JsonResource
                     'country' => $billing->country->name,
                 ]
             ],
-            'created_at' => (new \DateTime($this->created_at))->format('Y-m-d H:i:s'),
-            'updated_at' => (new \DateTime($this->updated_at))->format('Y-m-d H:i:s'),
+            'created_at' => (new \DateTime($this->created_at))->format('d-m-Y H:i:s'),
+            'updated_at' => (new \DateTime($this->updated_at))->format('d-m-Y H:i:s'),
         ];
     }
 }
