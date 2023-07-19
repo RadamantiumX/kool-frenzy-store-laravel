@@ -7,11 +7,11 @@ namespace App\Enums;
 
 enum OrderStatus: string
 {
-    case Unpaid = 'unpaid';
-    case Paid = 'paid';
-    case Cancelled = 'cancelled';
-    case Shipped = 'shipped';
-    case Completed = 'completed';
+    case Unpaid = 'no pagado';
+    case Paid = 'pagado';
+    case Cancelled = 'cancelado';
+    case Shipped = 'enviado';
+    case Completed = 'completado';
 
     public static function getStatuses()
     {

@@ -38,14 +38,14 @@ class ProductController extends Controller
          $data['created_by'] = $request->user()->id;
          $data['updated_by'] = $request->user()->id;
 
-         $image = $data['image'] ?? null;
+        /* $image = $data['image'] ?? null;
 
          if($image){
             $relativePath = $this->saveImage($image);
             $data['image'] = URL::to(Storage::url($relativePath));
             $data['image_mime'] = $image->getClientMimeType();
             $data['image_size'] = $image->getSize();
-         }
+         }*/
 
          $product = Product::create($data);
          return new ProductResource($product);
@@ -63,7 +63,7 @@ class ProductController extends Controller
         $data = $request->validated();
         $data['updated_by'] = $request->user()->id;
 
-        $image = $data['image'] ?? null;
+        /*$image = $data['image'] ?? null;
 
         if($image){
             $relativePath = $this->saveImage($image);
@@ -74,7 +74,7 @@ class ProductController extends Controller
             if($product->image){
                 Storage::deleteDirectory('/public/',dirname($product->image));
             }
-        }
+        }*/
 
         $product->update($data);
 

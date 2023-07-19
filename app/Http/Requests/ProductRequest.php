@@ -23,10 +23,11 @@ class ProductRequest extends FormRequest
     {
         return [
             'title'=>['required','max:2000'],
-            'image'=>['nullable','image'],
+            'image'=>['nullable','string'],//Se cambio de "image" a "string" para q solo se pueda utilizar una URL para subir imagenes
             'price'=>['required','numeric'],
             'description'=>['nullable','string'],
-            'published'=>['required','boolean']
+            'published'=>['required','boolean'],
+            'category'=>['required','string']
         ];
     }
 }

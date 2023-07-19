@@ -35,6 +35,7 @@ class ProductController extends Controller
 
     public function view(Product $product)
     {
+        //Review show whit the product
         $query= DB::table('reviews')
          ->select('rating','message','created_at')
          ->where(['product_id'=>$product->id])
