@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm m-5">
 
         <div class="mb-4 text-sm text-gray-600">
             {{ __('Gracias por registrarse en Kool Frenzy!. Antes de continuar debemos verificar tu email para mayor seguridad, te hemos enviado un mail a la direccion especificada con un link de redirección.') }}

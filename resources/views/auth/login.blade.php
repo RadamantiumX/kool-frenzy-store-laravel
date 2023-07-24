@@ -1,20 +1,20 @@
-<x-app-layout>
+<x-guest-layout>
     
-    <form method="POST" action="{{ route('login') }}" class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form method="POST" action="{{ route('login') }}" class="pt-40 sm:mx-auto sm:w-full sm:max-w-sm m-5">
         <h2 class="text-2xl font-semibold text-center mb-5">
             Ingresa a tu cuenta
         </h2>
-        <p class="text-center text-gray-500 mb-6">
+        <p class="text-center text-gray-900 mb-6">
             o
             <a
                 href="{{ route('register') }}"
-                class="text-sm text-purple-700 hover:text-purple-600"
+                class="text-bold text-gray-900  hover:text-yellow-300"
             >
                 Crea una nueva
             </a>
         </p>
 
-        <!-- Session Status -->
+         <!--Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')"/>
 
         @csrf
@@ -34,7 +34,7 @@
                 <label for="loginRememberMe">Recordarme</label>
             </div>
             @if (Route::has('password.request'))
-                <a href="{{ route('password.request') }}" class="text-sm text-purple-700 hover:text-purple-600">
+                <a href="{{ route('password.request') }}" class="text-sm text-gray-900 hover:text-yellow-300">
                     Olvidaste tu contraseña?
                 </a>
             @endif
@@ -45,5 +45,9 @@
             Ingresar
         </button>
     </form>
-</x-app-layout>
+
+
+
+    
+</x-guest-layout>
 

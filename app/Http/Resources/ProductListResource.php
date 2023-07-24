@@ -21,7 +21,8 @@ class ProductListResource extends JsonResource
             'price'=>$this->price,
             'updated_at'=>(new \DateTime($this->updated_at))->format('d-m-Y H:i:s'),
             'category'=>$this->category,
-            'review'=>$this->review
+            'review'=>$this->review,
+            'gender'=>$this->gender
         ];
     }
 }

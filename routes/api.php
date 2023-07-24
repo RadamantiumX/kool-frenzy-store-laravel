@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\SizeSelectorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,8 @@ Route::middleware(['auth:sanctum','admin'])->group(function(){
     Route::apiResource('products',ProductController::class);
     Route::apiResource('messages',MessageController::class);
     Route::apiResource('customers',CustomerController::class);
+    Route::get('/mix-sizes/sizes',[SizeSelectorController::class,'getSizesMix']);
+    Route::post('/mix-sizes/set-sizes/{product}/{size-mix}',[SizeSelectorController::class,'setSizeMix']);
     Route::get('orders',[OrderController::class,'index']);
     Route::get('orders/statuses',[OrderController::class,'getStatuses']);
     Route::post('orders/change-status/{order}/{status}',[OrderController::class,'changeStatus']);

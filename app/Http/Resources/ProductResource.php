@@ -29,6 +29,8 @@ class ProductResource extends JsonResource
             'updated_at'=> (new DateTime($this->updated_at))->format('Y-m-d H:i:s'),
             'review' =>$this->review,
             'category'=>$this->category,
+            'size_mix'=>$this->size_mix,
+            'gender'=>$this->gender
             
         ];
     }

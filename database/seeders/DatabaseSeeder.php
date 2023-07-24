@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'is_admin'=> true
         ]);
 
-       Product::factory(30)->create();
+       //Product::factory(30)->create();
        //Country::factory(10)->create();
 
        /*Country::create(

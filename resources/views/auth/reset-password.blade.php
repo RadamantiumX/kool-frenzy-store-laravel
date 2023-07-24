@@ -1,5 +1,5 @@
-<x-app-layout>
-    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+<x-guest-layout>
+    <div class="pt-40 sm:mx-auto sm:w-full sm:max-w-sm m-5">
 
         <h2 class="text-2xl font-semibold text-center mb-5">
             Ingresa la nueva contraseña
@@ -43,4 +43,4 @@
             </div>
         </form>
     </div>
-</x-app-layout>
+</x-guest-layout>

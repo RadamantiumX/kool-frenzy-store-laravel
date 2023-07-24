@@ -142,8 +142,7 @@
             <img src="https://i.postimg.cc/3J2pcLrw/logo.png" class="logo-img-footer" alt="Kool frenzy Logo Footer"/>  Kool Frenzy
           </h6>
           <p>
-            Here you can use rows and columns to organize your footer content. Lorem ipsum
-            dolor sit amet, consectetur adipisicing elit.
+            Diseños únicos que no vas a encontrar en cualquier tienda, vos también podes personalizar tu estilo.
           </p>
         </div>
         <!-- Grid column -->
@@ -239,9 +238,9 @@
 <!-- MDB -->
 <script
   type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.js"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"
 ></script>
-<!--/ MDB -->
+<!-- MDB -->
 <!--MercadoPago-->
 <script src="https://sdk.mercadopago.com/js/v2"></script>
 <!--MercadoPago-->
@@ -249,5 +248,8 @@
 <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 <!--Flowbite-->
+<!--Bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 </html>

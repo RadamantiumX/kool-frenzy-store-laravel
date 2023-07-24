@@ -8,15 +8,23 @@
     .send-button-review {
         margin-top: 20px;
     }
-    .non-comments{
+
+    .non-comments {
         display: flex;
         flex-direction: column;
         text-align: center;
     }
-    .non-comments h4{
+
+    .non-comments h4 {
         font-size: 30px;
     }
-   
+
+    .size-box {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+
+    }
 </style>
 <x-app-layout>
     <div x-data="productItem({{ json_encode([
@@ -25,6 +33,7 @@
                     'image' => $product->image,
                     'title' => $product->title,
                     'price' => $product->price,
+                    'size_mix'=> $product->size_mix,
                     'addToCartUrl' => route('cart.add', $product)
                 ]) }})" class="container mx-auto">
         <div class="grid gap-6 grid-cols-1 lg:grid-cols-5">
@@ -94,9 +103,9 @@
                     <i class="fa-solid fa-star"></i> Calificar
                 </button>
                 @endif
-                
 
-                <!-- Modal -->
+
+                <!-- Modal Review-->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -136,18 +145,13 @@
                         </div>
                     </div>
                 </div>
-                <!-- Modal -->
+                <!-- Modal Review-->
 
                 <!--Stars Values-->
 
 
-
-
-
-
-
-
-                <div class="text-xl font-bold mb-6">${{$product->price}}</div>
+                <!--Product Details-->
+                <div class="text-xl font-bold mb-6">$ARS {{$product->price}}</div>
 
                 <div class="flex items-center justify-between mb-5">
                     <label for="quantity" class="block font-bold mr-4">
@@ -166,93 +170,460 @@
                         {{ $product->description }}
                     </div>
                     <p class="text-right">
-                        <a @click="expanded = !expanded" href="javascript:void(0)" class="text-purple-500 hover:text-purple-700" x-text="expanded ? 'Read Less' : 'Read More'"></a>
+                        <a @click="expanded = !expanded" href="javascript:void(0)" class="text-purple-500 hover:text-purple-700" x-text="expanded ? 'Contraer' : 'Leer más'"></a>
                     </p>
-                </div>
-            </div>
-        </div>
+                    <!--Product Details-->
+
+                    <!--Sizes Selector-->
+                    <div>
+                        <h3 class="text-xlg font-semibold flex justify-center min-w-0 w-full mb-6">Selección de talles</h3>
+
+                        @switch($product->size_mix)
+                        @case('A1')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('A2')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('A3')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('A4')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('A5')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('B1')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('B2')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('B3')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('B4')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('C1')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('C2')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('C3')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('D1')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('D2')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('E1')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('F1')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('F2')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('F3')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('G1')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('G2')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('H1')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('I1')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('I2')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('J1')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio" disabled class="btn-check cursor-not-allowed" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+                        @case('All')
+                        <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                        </div>
+                        @break
+
+                        @endswitch
+
     </div>
+    <!--Sizes Selector-->
+
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <!--Reviews stars-->
     @if ($reviews->isEmpty())
-     <div class="non-comments">
-       <h4>No hay reseñas de este artículo... <i class="fa-solid fa-ghost"></i></h4>
-       <p>Se el primero en calificarlo...<i class="fa-solid fa-face-smile"></i></p>
+    <div class="non-comments">
+        <h4>No hay reseñas de este artículo... <i class="fa-solid fa-ghost"></i></h4>
+        <p>Se el primero en calificarlo...<i class="fa-solid fa-face-smile"></i></p>
     </div>
     @else
-       
+
     <div class="reviews bg-white py-24 sm:py-32">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl lg:mx-0">
-      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Algunas opiniones acerca de este artículo</h2>
-      <p class="mt-2 text-lg leading-8 text-gray-600">Podes dejarnos tu reseña para poder seguir mejorando nuestro arte... <i class="fa-regular fa-face-kiss-wink-heart"></i></p>
-    </div>
-    
-    @foreach ($reviews as $review)
-        
-    
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl lg:mx-0">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Algunas opiniones acerca de este artículo</h2>
+                <p class="mt-2 text-lg leading-8 text-gray-600">Podes dejarnos tu reseña para poder seguir mejorando nuestro arte... <i class="fa-regular fa-face-kiss-wink-heart"></i></p>
+            </div>
 
-    <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-      <article class="flex max-w-xl flex-col items-start justify-between">
-        
-        <div class="group relative">
-          <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-            @switch($review->rating)
-                    @case(1)
-                    <i class="fa-solid fa-star"></i>
-                    @break
+            @foreach ($reviews as $review)
+            <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                <article class="flex max-w-xl flex-col items-start justify-between">
 
-                    @case(2)
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    @break
-                    
-                    @case(3)
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    @break
+                    <div class="group relative">
+                        <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                            @switch($review->rating)
+                            @case(1)
+                            <i class="fa-solid fa-star"></i>
+                            @break
 
-                    @case(4)
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    @break
+                            @case(2)
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            @break
 
-                    @case(5)
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    @break                
-            
-                @default
-                    
-            @endswitch
-          </h3>
-          <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{{$review->message}}</p>
+                            @case(3)
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            @break
+
+                            @case(4)
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            @break
+
+                            @case(5)
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            @break
+
+                            @default
+
+                            @endswitch
+                        </h3>
+                        <!--Reviews stars-->
+
+                        <!--Reviews Posts-->
+                        <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{{$review->message}}</p>
+                    </div>
+                    <div class="relative mt-8 flex items-center gap-x-4">
+
+                        <div class="text-sm leading-6">
+                            <p class="font-semibold text-gray-900">
+
+                                <span class="absolute inset-0"></span>
+                                Creado el:
+
+                            </p>
+                            <p class="text-gray-600">{{$review->created_at}}</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- More posts... -->
+            </div>
+            @endforeach
         </div>
-        <div class="relative mt-8 flex items-center gap-x-4">
-          
-          <div class="text-sm leading-6">
-            <p class="font-semibold text-gray-900">
-             
-                <span class="absolute inset-0"></span>
-                Creado el:
-             
-            </p>
-            <p class="text-gray-600">{{$review->created_at}}</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- More posts... -->
     </div>
-    @endforeach
-  </div>
-</div>
     @endif
-    
+
 
 </x-app-layout>
 <script>

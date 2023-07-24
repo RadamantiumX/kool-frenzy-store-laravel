@@ -27,7 +27,9 @@ class ProductRequest extends FormRequest
             'price'=>['required','numeric'],
             'description'=>['nullable','string'],
             'published'=>['required','boolean'],
-            'category'=>['required','string']
+            'category'=>['required','string'],
+            'size_mix'=>['required','string'],
+            'gender'=>['nullable','string']
         ];
     }
 }

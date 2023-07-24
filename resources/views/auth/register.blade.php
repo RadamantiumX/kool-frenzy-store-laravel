@@ -1,8 +1,8 @@
-<x-app-layout>
+<x-guest-layout>
     <form
         action="{{ route('register') }}"
         method="post"
-        class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm"
+        class="pt-40 sm:mx-auto sm:w-full sm:max-w-sm m-5"
     >
         @csrf
 
@@ -11,7 +11,7 @@
             o
             <a
                 href="{{ route('login') }}"
-                class="text-sm text-purple-700 hover:text-purple-600"
+                class="text-sm text-gray-900 hover:text-yellow-300"
             >
                 ingresa con una cuenta existente
             </a>
@@ -39,4 +39,4 @@
             Registrarse
         </button>
     </form>
-</x-app-layout>
+</x-guest-layout>
