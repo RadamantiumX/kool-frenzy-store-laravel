@@ -25,6 +25,7 @@ class CartController extends Controller
     public function add(Request $request, Product $product)
     {
         $quantity = $request->post('quantity', 1);
+        $size = $request->post('size');
         $user = $request->user();
         if ($user) {
 
@@ -38,6 +39,7 @@ class CartController extends Controller
                     'user_id' => $request->user()->id,
                     'product_id' => $product->id,
                     'quantity' => $quantity,
+                    'size'=>$size
                 ];
                 CartItem::create($data);
             }
@@ -60,7 +62,8 @@ class CartController extends Controller
                     'user_id' => null,
                     'product_id' => $product->id,
                     'quantity' => $quantity,
-                    'price' => $product->price
+                    'price' => $product->price,
+                    'size'=>$size
                 ];
             }
             Cookie::queue('cart_items', json_encode($cartItems), 60 * 24 * 30);

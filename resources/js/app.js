@@ -55,23 +55,26 @@ document.addEventListener("alpine:init", async () => {
   Alpine.data("productItem", (product) => {
     return {
       product,
-      addToCart(quantity = 1) {
-        post(this.product.addToCartUrl, {quantity})
+      addToCart(quantity = 1,size) {
+        
+        post(this.product.addToCartUrl, {quantity,size})
           .then(result => {
             this.$dispatch('cart-change', {count: result.count})
             this.$dispatch("notify", {
-              message: "The item was added into the cart",
+              message: "Producto agregado al carrito de compras",
             });
           })
           .catch(response => {
             console.log(response);
+            
           })
+        
       },
       removeItemFromCart() {
         post(this.product.removeUrl)
           .then(result => {
             this.$dispatch("notify", {
-              message: "The item was removed from cart",
+              message: "Este producto fue eliminado del carrito",
             });
             this.$dispatch('cart-change', {count: result.count})
             this.cartItems = this.cartItems.filter(p => p.id !== product.id)
@@ -82,28 +85,14 @@ document.addEventListener("alpine:init", async () => {
           .then(result => {
             this.$dispatch('cart-change', {count: result.count})
             this.$dispatch("notify", {
-              message: "The item quantity was updated",
+              message: "El producto ha sido modificado",
             });
           })
       },
     };
   });
 
- /* Alpine.data('rating',()=>({
-    rating:0,
-
-    setRating(star,productId){
-      this.rating = star;
-      post('/valoracion',{rating: this.rating,product_id:productId})
-       .then(result=>{
-        console.log(result.data.message);
-       })
-       .catch(error=>{
-        console.error(error.result.data)
-       })
-       ;
-    }
-  }));*/
+ 
 });
 
 

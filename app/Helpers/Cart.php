@@ -43,7 +43,7 @@ class Cart
         $user = $request->user();
         if ($user) {
             return CartItem::where('user_id', $user->id)->get()->map(
-                fn($item) => ['product_id' => $item->product_id, 'quantity' => $item->quantity]
+                fn($item) => ['product_id' => $item->product_id, 'quantity' => $item->quantity,'size'=>$item->size]
             );
         } else {
             return self::getCookieCartItems();
@@ -79,6 +79,7 @@ class Cart
                 'user_id' => $request->user()->id,
                 'product_id' => $cartItem['product_id'],
                 'quantity' => $cartItem['quantity'],
+                'size'=>$cartItem['size']
             ];
         }
 
