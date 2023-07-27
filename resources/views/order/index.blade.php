@@ -2,12 +2,22 @@
     .order-title{
         font-family: 'Permanent Marker', cursive;
     }
+    .no-data-box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 </style>
 <x-app-layout>
 <div class="container mx-auto lg:w-2/3 p-5">
         <h1 class="order-title text-3xl font-bold mb-2">Mis pedidos</h1>
         @if ($orders->isEmpty())
-           <div>No hay pedidos realizados...</div> 
+        <div class="no-data-box">
+           <div>Nada por aquí...</div> 
+
+           <img src="https://i.postimg.cc/59P7DyMy/birds-design-removebg-preview.png" alt="Kool Frenzy Birds design" class="img-fluid"/>
+           <a class="mt-5 btn bg-indigo-900" href="{{ route('home') }}"><i class="fa-solid fa-play me-2"></i> Empezar...</a>
+        </div>
         @else
 
         <div class="bg-white rounded-lg p-3 overflow-x-auto">

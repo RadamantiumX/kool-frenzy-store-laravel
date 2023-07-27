@@ -28,7 +28,7 @@ class NewOrderEmail extends Mailable
     public function build()
     {
         return $this
-          ->subject('New Order')
+          ->subject('Nuevo Pedido realizado')
           ->view('mail.new-order');
     }
 

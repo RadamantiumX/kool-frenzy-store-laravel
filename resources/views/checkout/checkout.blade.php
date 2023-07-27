@@ -42,19 +42,19 @@
                       class="img-fluid" alt="Phone">
                   </div-->
                   <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0">{{substr($item->title,0,8) }}</p>
+                    <p class="text-muted mb-0">{{ $item->title }}</p>
                   </div>
                   <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0 small">{{ substr($item->description,0,8)  }}</p>
+                    <p class="text-muted mb-0 small">{{ $item->description }}</p>
                   </div>
                   <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0 small">Color: Negra</p>
+                    <p class="text-muted mb-0 small">Talle: {{ $item->size }}</p>
                   </div>
                   <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
                     <p class="text-muted mb-0 small">Cant: {{ $item->quantity }}</p>
                   </div>
                   <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0 small">${{ $item->unit_price }}</p>
+                    <p class="text-muted mb-0 small">$ARS {{ $item->unit_price }}</p>
                   </div>
                 </div>
                 
@@ -69,7 +69,7 @@
           </div>
           <div class="card-footer border-0 px-4 py-5"
             style="background-color: #a8729a;  ">
-            <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">Total a pagar: <span class="h2 mb-0 ms-2">${{$order->total_price}}</span></h5>
+            <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">Total a pagar: <span class="h2 mb-0 ms-2">$ARS {{$order->total_price}}</span></h5>
            
           </div>
           <!--Boton MP-->

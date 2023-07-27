@@ -44,7 +44,8 @@ class CheckoutController extends Controller
         
         foreach ($products as $product){
 
-            $quantity = $cartItems[$product->id]['quantity'] ;
+            $quantity = $cartItems[$product->id]['quantity'];
+            $size = $cartItems[$product->id]['size'];
             $totalPrice += $product->price * $quantity;
 
             //Clases de MP
@@ -53,6 +54,7 @@ class CheckoutController extends Controller
             $lineItem->title = $product->title;
             $lineItem->description = $product->description;
             $lineItem->quantity = $quantity;
+            $lineItem->size = $size;
             $lineItem->unit_price = $product->price;       
             $lineItems[] = $lineItem;
           
@@ -60,6 +62,7 @@ class CheckoutController extends Controller
              $orderItems[] = [
             'product_id' => $product->id,
             'quantity' => $quantity,
+            'size'=>$size,
             'unit_price' => $product->price
              ];
         }

@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-    <form action="{{ route('password.email') }}" method="post" class="pt-40 sm:mx-auto sm:w-full sm:max-w-sm m-5">
+    <form action="{{ route('password.email') }}" method="POST" class="pt-40 sm:mx-auto sm:w-full sm:max-w-sm m-5">
         @csrf
         <h2 class="text-2xl font-semibold text-center mb-5">
             Ingresa el email de tu cuenta para reestablecer una nueva contraseña

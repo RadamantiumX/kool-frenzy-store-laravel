@@ -1,9 +1,15 @@
 import './bootstrap';
 
+
+
+
+
 import Alpine from 'alpinejs';
 
 import collapse from '@alpinejs/collapse'
 import {get, post} from "./http.js";
+
+
 
 Alpine.plugin(collapse)
 
@@ -56,7 +62,9 @@ document.addEventListener("alpine:init", async () => {
     return {
       product,
       addToCart(quantity = 1,size) {
-        
+        if(size === ''){
+         return console.log('nada')
+        }else{
         post(this.product.addToCartUrl, {quantity,size})
           .then(result => {
             this.$dispatch('cart-change', {count: result.count})
@@ -68,7 +76,7 @@ document.addEventListener("alpine:init", async () => {
             console.log(response);
             
           })
-        
+        }
       },
       removeItemFromCart() {
         post(this.product.removeUrl)

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class OrderItem extends Model
 {
     use HasFactory;
-    protected $fillable = ['order_id', 'unit_price', 'product_id', 'quantity'];
+    protected $fillable = ['order_id', 'unit_price', 'product_id', 'quantity','size'];
 
     public function order(): BelongsTo
     {

@@ -1,14 +1,25 @@
+<style>
+    .auth-font{
+        font-family: 'Permanent Marker', cursive;
+    }
+    .box-auth{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+
 <x-guest-layout>
-    
-    <form method="POST" action="{{ route('login') }}" class="pt-40 sm:mx-auto sm:w-full sm:max-w-sm m-5">
-        <h2 class="text-2xl font-semibold text-center mb-5">
+    <div class="box-auth">
+    <form method="POST" action="{{ route('login') }}" class=" sm:mx-auto sm:w-full sm:max-w-sm m-5">
+        <h2 class="auth-font text-2xl font-semibold text-center mb-5 text-light">
             Ingresa a tu cuenta
         </h2>
-        <p class="text-center text-gray-900 mb-6">
+        <p class="text-center text-gray-300 mb-6">
             o
             <a
                 href="{{ route('register') }}"
-                class="text-bold text-gray-900  hover:text-yellow-300"
+                class="text-bold text-gray-200  hover:text-yellow-300"
             >
                 Crea una nueva
             </a>
@@ -34,7 +45,7 @@
                 <label for="loginRememberMe">Recordarme</label>
             </div>
             @if (Route::has('password.request'))
-                <a href="{{ route('password.request') }}" class="text-sm text-gray-900 hover:text-yellow-300">
+                <a href="{{ route('password.request') }}" class="text-sm text-gray-200 hover:text-yellow-300">
                     Olvidaste tu contraseña?
                 </a>
             @endif
@@ -45,7 +56,7 @@
             Ingresar
         </button>
     </form>
-
+</div>
 
 
     

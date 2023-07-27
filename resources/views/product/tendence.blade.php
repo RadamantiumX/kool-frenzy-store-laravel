@@ -46,6 +46,8 @@
           </div>
           <p class="text-sm font-medium text-gray-900">$ARS {{ $product->price }}</p>
         </div>
+
+        <div class="pl-2">
         @switch($product->review)
             @case(1)
             <i class="fa-solid fa-star"></i>
@@ -81,6 +83,8 @@
             @default
               <p>Sin calificar</p>
           @endswitch
+            </div>
+
         <div class="flex justify-between py-3 px-4">
                         <button class="btn-primary" @click="addToCart()">
                             Ver <i class="fa-solid fa-eye"></i>

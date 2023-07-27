@@ -1,17 +1,29 @@
+<style>
+    .auth-font{
+        font-family: 'Permanent Marker', cursive;
+    }
+    .box-auth{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+
 <x-guest-layout>
+    <div class="box-auth">
     <form
         action="{{ route('register') }}"
         method="post"
-        class="pt-40 sm:mx-auto sm:w-full sm:max-w-sm m-5"
+        class=" sm:mx-auto sm:w-full sm:max-w-sm m-5"
     >
         @csrf
 
-        <h2 class="text-2xl font-semibold text-center mb-4">Crea una nueva cuenta</h2>
-        <p class="text-center text-gray-500 mb-3">
+        <h2 class="text-light auth-font text-2xl font-semibold text-center mb-4">Crea una nueva cuenta</h2>
+        <p class="text-center text-gray-300 mb-3">
             o
             <a
                 href="{{ route('login') }}"
-                class="text-sm text-gray-900 hover:text-yellow-300"
+                class="text-sm text-gray-200 hover:text-yellow-300"
             >
                 ingresa con una cuenta existente
             </a>
@@ -39,4 +51,5 @@
             Registrarse
         </button>
     </form>
+</div>
 </x-guest-layout>

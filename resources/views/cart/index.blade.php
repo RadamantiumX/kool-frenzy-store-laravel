@@ -38,7 +38,7 @@
                                     <div class="flex justify-between mb-3">
                                         <h3 x-text="product.title"></h3>
                                         <span class="text-lg font-semibold">
-                                            $<span x-text="product.price"></span>
+                                            $ARS <span x-text="product.price"></span>
                                         </span>
                                     </div>
                                     <div class="flex justify-between items-center">
@@ -73,7 +73,7 @@
                     <div class="border-t border-gray-300 pt-4">
                         <div class="flex justify-between">
                             <span class="font-semibold">Subtotal</span>
-                            <span id="cartTotal" class="text-xl" x-text="`$${cartTotal}`"></span>
+                            <span id="cartTotal" class="text-xl" x-text="`$ARS ${cartTotal}`"></span>
                         </div>
                         <p class="text-gray-500 mb-6">
                         <i class="fa-solid fa-lock"></i> Compra segura con Mercado pago <img src="https://i.postimg.cc/mrDNBpwr/icons8-mercado-pago-48.png" alt="icono mercado pago"/>

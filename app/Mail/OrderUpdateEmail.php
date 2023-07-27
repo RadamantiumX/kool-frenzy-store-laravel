@@ -28,7 +28,7 @@ class OrderUpdateEmail extends Mailable
     public function build()
     {
         return $this
-          ->subject('Order Status was updated')
+          ->subject('Estado del pedido')
           ->view('mail.update-order');
     }
 

@@ -159,7 +159,7 @@
                     </label>
                     <input type="number" name="quantity" x-ref="quantityEl" value="1" min="1" class="w-32 focus:border-purple-500 focus:outline-none rounded" />
                 </div>
-                <button @click="addToCart($refs.quantityEl.value, sizeEl)" class="btn-primary py-4 text-lg flex justify-center min-w-0 w-full mb-6">
+                <button @click="!sizeEl ? alert('Selecciona un talle...') : addToCart($refs.quantityEl.value, sizeEl)" class="btn-primary py-4 text-lg flex justify-center min-w-0 w-full mb-6">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
@@ -182,351 +182,351 @@
                         @case('A1')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('A2')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('A3')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('A4')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('A5')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('B1')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('B2')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('B3')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('B4')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('C1')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('C2')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('C3')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('D1')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('D2')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('E1')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('F1')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')" disabled class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('F2')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('F3')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('G1')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('G2')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')" disabled class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('H1')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('I1')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')" disabled class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('I2')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')" disabled class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('J1')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')" disabled class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
                         @case('All')
                         <div class="btn-group  flex justify-center"  aria-label="Basic radio toggle button group">
                             <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="S">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio1">S</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio2">M</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio3">L</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
-                            <input type="radio" required  @click="sendOption('S')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
-                            <label class="btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio1">S</label>
+                            <input type="radio" required  @click="sendOption('M')"  class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="M">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio2">M</label>
+                            <input type="radio" required  @click="sendOption('L')"  class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="L">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio3">L</label>
+                            <input type="radio" required  @click="sendOption('XL')"  class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio4">XL</label>
+                            <input type="radio" required  @click="sendOption('2XL')"  class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="2XL">
+                            <label class="text-light btn btn-outline-secondary btn-success" for="btnradio5">2XL</label>
                         </div>
                         @break
 
@@ -627,9 +627,17 @@
 
 </x-app-layout>
 <script>
+
+    let sizeEl = '';
     function sendOption(opcion){
-        console.log(opcion)
+        
         sizeEl = opcion;
+    }
+
+    function isEmptyField (){
+        if(!sizeEl){
+            alert('Debes seleccionar un talle primero...')
+        }
     }
 
     document.addEventListener("alpine:init", () => {
