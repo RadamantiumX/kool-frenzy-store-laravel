@@ -35,6 +35,9 @@ class ProductController extends Controller
 
     public function view(Product $product)
     {
+        $var = "😀";
+        
+
         //Review show whit the product
         $query= DB::table('reviews')
          ->select('rating','message','created_at')
@@ -44,8 +47,17 @@ class ProductController extends Controller
          ->get();
          
         $reviews = ReviewResource::collection($query); 
+        
+        //Para mostrar en los botones de compartir en redes sociales
+        $shareButtons = \Share::page(url('/product/'.$product->slug),'Me gusto este diseño de Kool Frenzy!'.$var)
+                  ->facebook()
+                  ->linkedin()
+                  ->whatsapp()
+                  ->twitter()
+                  ->pinterest();
+        
       
-        return view('product.view',['product'=>$product,'reviews'=>$reviews]);
+        return view('product.view',['product'=>$product,'reviews'=>$reviews],compact('shareButtons'));
     }
 
     public function search(Request $request)

@@ -1,8 +1,18 @@
+<style>
+    .auth-font{
+        font-family: 'Permanent Marker', cursive;
+    }
+    .box-auth{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
 <x-guest-layout>
-
-    <form action="{{ route('password.email') }}" method="POST" class="pt-40 sm:mx-auto sm:w-full sm:max-w-sm m-5">
+     <div class="box-auth">
+    <form action="{{ route('password.email') }}" method="POST" class=" sm:mx-auto sm:w-full sm:max-w-sm m-5">
         @csrf
-        <h2 class="text-2xl font-semibold text-center mb-5">
+        <h2 class="auth-font text-2xl font-semibold text-center text-light mb-5">
             Ingresa el email de tu cuenta para reestablecer una nueva contraseña
         </h2>
 
@@ -13,7 +23,7 @@
             o
             <a
                 href="{{ route('login') }}"
-                class="text-purple-600 hover:text-purple-500"
+                class="text-purple-100 hover:text-purple-500"
             >
                 Ingresa con una cuenta existente
             </a>
@@ -26,7 +36,8 @@
         <button
             class="btn-primary bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 w-full"
         >
-            Link para reestablecimiento de contraseña
+        <i class="fa-solid fa-arrow-up-right-from-square me-3"></i> Link para reestablecimiento de contraseña
         </button>
     </form>
+</div>
 </x-guest-layout>

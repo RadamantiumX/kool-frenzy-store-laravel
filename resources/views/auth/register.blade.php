@@ -48,6 +48,7 @@
         <button
             class="btn-primary bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 w-full"
         >
+        <i class="fa-solid fa-user-plus me-3"></i>
             Registrarse
         </button>
     </form>

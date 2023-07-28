@@ -25,6 +25,27 @@
         justify-content: flex-start;
 
     }
+    .title-article{
+        font-family: 'Permanent Marker', cursive;
+        font-size: 45px;
+    }
+    .box-faq{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 40px;
+    }
+    .share-box{
+        display: flex;
+        flex-direction: column;    
+    }
+    #social-links ul li{
+         display: inline-block;
+    }
+    #social-links ul li a{
+        padding: 5px;
+        margin: 2px;
+    }
 </style>
 <x-app-layout>
     <div x-data="productItem({{ json_encode([
@@ -85,9 +106,10 @@
             </div>
 
             <div class="lg:col-span-2">
-                <h1 class="text-lg font-semibold">
-                    {{$product->title}}
+                <h1 class="title-article text-lg font-semibold">
+                    {{$product->title}} 
                 </h1>
+                
 
 
 
@@ -102,6 +124,7 @@
                 <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
                     <i class="fa-solid fa-star"></i> Calificar
                 </button>
+                
                 @endif
 
 
@@ -158,6 +181,7 @@
                         Cantidad
                     </label>
                     <input type="number" name="quantity" x-ref="quantityEl" value="1" min="1" class="w-32 focus:border-purple-500 focus:outline-none rounded" />
+
                 </div>
                 <button @click="!sizeEl ? alert('Selecciona un talle...') : addToCart($refs.quantityEl.value, sizeEl)" class="btn-primary py-4 text-lg flex justify-center min-w-0 w-full mb-6">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -165,6 +189,10 @@
                     </svg>
                     Añadir al carrito de compras
                 </button>
+                <div class="share-box">
+                    <p class="text-sm">Compartir <i class="fa-solid fa-share-nodes"></i></p>
+                    {!!$shareButtons!!}
+                </div>
                 <div class="mb-6" x-data="{expanded: false}">
                     <div x-show="expanded" x-collapse.min.120px class="text-gray-500 wysiwyg-content">
                         {{ $product->description }}
@@ -176,7 +204,7 @@
 
                     <!--Sizes Selector-->
                     <div>
-                        <h3 class="text-xlg font-semibold flex justify-center min-w-0 w-full mb-6">Selección de talles</h3>
+                        <h3 class="text-xlg font-semibold flex justify-center min-w-0 w-full mb-6">Talles disponibles</h3>
                         
                         @switch($product->size_mix)
                         @case('A1')
@@ -539,6 +567,9 @@
 
     </div>
     </div>
+    </div>
+    <div class="box-faq">
+    <a href="{{ route('contact') }}"><p><i class="fa-solid fa-circle-question me-2"></i>¿Preguntas? Envianos tu mensaje</p></a>
     </div>
     </div>
 

@@ -1,3 +1,19 @@
+<style>
+    .no-products{
+        height: 70vh;
+    }
+    .cart-empty-box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    .img-cart{
+        width: 400px;
+        height: 400px;
+    }
+</style>
+
 <x-app-layout>
     <div class="container lg:w-2/3 xl:w-2/3 mx-auto">
         <h1 class="text-3xl font-bold mb-6">Carrito de compras</h1>
@@ -94,9 +110,11 @@
                 <!--/ Product Items -->
             </template>
             <template x-if="!cartItems.length">
-                <div class="text-center py-8 text-gray-500">
-                    No hay nada en el carrito de compras
-                </div>
+                <div class="no-products text-center py-8 text-gray-500">
+                    <div class="cart-empty-box">
+                    <h3>No hay nada en el carrito de compras</h3> 
+                    <img class="img-fluid img-cart mt-10" src="https://i.postimg.cc/5tr9DrY7/932-9327293-shopping-cart-removebg-preview.png" alt="cart Kool Frenzy shop"/>
+                   </div>
             </template>
 
         </div>
