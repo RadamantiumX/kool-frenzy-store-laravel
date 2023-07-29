@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             'email_verified_at'=> now(),
             'is_admin'=> true
         ]);
-
+    
        //Product::factory(30)->create();
        //Country::factory(10)->create();
 

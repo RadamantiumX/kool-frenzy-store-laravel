@@ -56,7 +56,9 @@
         <i class="fa-solid fa-arrow-right-to-bracket me-3"></i>
             Ingresar
         </button>
+        
     </form>
+    <a href="{{ route('terms') }}" >Terminos y condiciones</a>
 </div>
 
 

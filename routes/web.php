@@ -32,10 +32,11 @@ Route::get('/product/category',[ProductController::class,'category']);//Busqueda
 Route::get('/product/tendence',[ProductController::class,'tendence']);//Busqueda por categoria (Remera o Buzo) 
 Route::get('/product/index',[ProductController::class,'index']);//Todos los productos 
 
+
 Route::middleware(['guestOrVerified'])->group(function () {
     Route::get('/', [ProductController::class, 'latest'])->name('home');
     Route::get('/product/{product:slug}', [ProductController::class, 'view'])->name('product.view');//Productos seleccionado
-
+    Route::get('/terms',function(){return view('legals.terms');})->name('terms');//Terminos y condiciones
     
 
 

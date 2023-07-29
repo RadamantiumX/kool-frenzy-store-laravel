@@ -11,12 +11,16 @@
  .collapse{
   visibility: visible;
  }
+ .btn-user{
+    border-radius: 10%;
+ }
  .user-name-title{
-   color: #d3e3d7;
-   font-size: 17px;
+   color: #eb5109;
+   font-size: 24px;
+   font-weight: bold;
  }
  .user-name-title:hover{
-   color: #fff;
+   color: #cc34eb;
  }
  .new-user{
    font-size: 17px;
@@ -69,7 +73,7 @@ x-data="{
        
       </div>
       <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        <a  href="{{ route('cart.index') }}" type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+        <a  href="{{ route('cart.index') }}" data-toggle="tooltip" data-placement="bottom" title="Carrito de compras" type="button" class="rounded-full  p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
           <span class="sr-only">Carrito</span>
           <i class="fa-solid fa-cart-shopping"></i>
    
@@ -90,9 +94,9 @@ x-data="{
         <div class="relative ml-3">
           @if (!Auth::guest())
           <div>
-            <button type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true" onclick="menuDropDown()">
+            <button type="button" data-toggle="tooltip" data-placement="bottom" title="Cuenta Kool Frenzy: {{ auth()->user()->name }}" class="btn-user flex p-2  bg-gray-100 hover:bg-gray-800 text-lx focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true" onclick="menuDropDown()">
               <span class="sr-only">Open user menu</span>
-               <h3 class="user-name-title">{{ auth()->user()->name }}</h3> 
+               <h3 class="user-name-title">{{ substr(auth()->user()->name,0,1)  }}</h3> 
             </button>
           </div>
 
@@ -112,7 +116,7 @@ x-data="{
 
           @else 
           <div>
-            <button type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true" onclick="menuDropDown()">
+            <button type="button" data-toggle="tooltip" data-placement="bottom" title="Ingresar con una cuenta o Registrarse" class="flex rounded-full  text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true" onclick="menuDropDown()">
               <span class="sr-only">Menu de Usuario</span>
               <div class="new-user"><i class="fa-solid fa-user"></i></div>
             </button>
