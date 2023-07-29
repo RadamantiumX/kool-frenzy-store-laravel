@@ -21,7 +21,7 @@
                     setTimeout(() => this.$dispatch('notify', {message: this.flashMessage}), 200)
                 }
             }
-        }" class="container mx-auto lg:w-2/3 p-5">
+        }" class="container mx-auto lg:w-2/3 p-1">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
             <div class="bg-white p-3 shadow rounded-lg md:col-span-2">
                 <form x-data="{

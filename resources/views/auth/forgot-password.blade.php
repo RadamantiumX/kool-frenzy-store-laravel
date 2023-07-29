@@ -17,7 +17,7 @@
         </h2>
 
         <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')"/>
+        <x-auth-session-status class="text-light mb-4" :status="session('status')"/>
 
         <p class="text-center text-gray-500 mb-6">
             o

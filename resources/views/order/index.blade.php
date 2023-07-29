@@ -1,4 +1,7 @@
 <style>
+    .order-sections{
+        height: 90vh;
+    }
     .order-title{
         font-family: 'Permanent Marker', cursive;
     }
@@ -7,9 +10,15 @@
         flex-direction: column;
         align-items: center;
     }
+    .q-box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 </style>
 <x-app-layout>
-<div class="container mx-auto lg:w-2/3 p-5">
+<div class="order-sections">   
+<div class="container mx-auto lg:w-2/3 p-1">
         <h1 class="order-title text-3xl font-bold mb-2">Mis pedidos</h1>
         @if ($orders->isEmpty())
         <div class="no-data-box">
@@ -24,9 +33,9 @@
             <table class="table-auto w-full">
                 <thead>
                 <tr class="border-b-2">
-                    <th class="text-left p-2">Pedido #</th>
-                    <th class="text-left p-2">Fecha</th>
-                    <th class="text-left p-2">Status</th>
+                    <th class="text-left p-2">Pedido Nº</th>
+                    <th class="text-left p-2">Fecha y hora</th>
+                    <th class="text-left p-2">Estado</th>
                     <th class="text-left p-2">SubTotal</th>
                     <th class="text-left p-2">Artículo</th>
                     <th class="text-left p-2">Entrega</th>
@@ -89,6 +98,12 @@
             {{ $orders->links() }}
         </div>
         @endif
+        <div class="q-box mt-20">
+            
+            <img class="img-fluid" src="https://i.postimg.cc/qvDjXqm5/no-bg-question-icon.png" alt="Question icon Kool Frenzy"/>
+            <a class="btn btn-info border-tiel" href="{{ route('contact') }}">¿Preguntas?... Podemos responderlas <i class="fa-regular fa-face-smile"></i></a>
+        </div>
     </div>
+</div> 
 </x-app-layout>
 

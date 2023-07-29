@@ -26,7 +26,7 @@
         </p>
 
          <!--Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')"/>
+        <x-auth-session-status class="mb-4 text-light" :status="session('status')"/>
 
         @csrf
         <div class="mb-4">
