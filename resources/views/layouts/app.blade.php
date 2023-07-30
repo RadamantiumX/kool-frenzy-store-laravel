@@ -199,7 +199,7 @@
             Legales
           </h6>
           <p>
-            <a href="#!" class="text-reset">Term. y Condiciones</a>
+            <a href="{{ route('terms') }}" class="text-reset">Term. y Condiciones</a>
           </p>
           <p>
             <a href="#!" class="text-reset">Privacidad</a>

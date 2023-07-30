@@ -36,7 +36,7 @@ Route::get('/product/index',[ProductController::class,'index']);//Todos los prod
 Route::middleware(['guestOrVerified'])->group(function () {
     Route::get('/', [ProductController::class, 'latest'])->name('home');
     Route::get('/product/{product:slug}', [ProductController::class, 'view'])->name('product.view');//Productos seleccionado
-    Route::get('/terms',function(){return view('legals.terms');})->name('terms');//Terminos y condiciones
+    Route::get('/terms',[PageController::class,'terms'])->name('terms');//Terminos y condiciones
     
 
 

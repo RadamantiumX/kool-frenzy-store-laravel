@@ -15,4 +15,9 @@ class PageController extends Controller
     {
        return view('design.design'); 
     }
+
+    public function terms()
+    {
+      return view('legals.terms');
+    }
 }
