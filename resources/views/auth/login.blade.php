@@ -58,7 +58,7 @@
         </button>
         
     </form>
-    <a href="{{ route('terms') }}" >Terminos y condiciones</a>
+    <a class="text-light" href="{{ route('terms') }}" >Ver los Terminos y condiciones</a>
 </div>
 
 

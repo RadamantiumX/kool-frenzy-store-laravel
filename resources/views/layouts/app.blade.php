@@ -201,9 +201,7 @@
           <p>
             <a href="{{ route('terms') }}" class="text-reset">Term. y Condiciones</a>
           </p>
-          <p>
-            <a href="#!" class="text-reset">Privacidad</a>
-          </p>
+          
          
         </div>
         <!-- Grid column -->
@@ -212,7 +210,7 @@
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="font-site text-uppercase fw-bold mb-4">Contacto</h6>
-          <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+          <p><i class="fas fa-home me-3"></i> Buenos Aires, Argentina</p>
           <p>
             <i class="fas fa-envelope me-3"></i>
             info@example.com
