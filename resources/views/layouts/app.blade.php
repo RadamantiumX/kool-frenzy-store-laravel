@@ -39,7 +39,138 @@
         .font-site{
           font-family: 'Permanent Marker', cursive;
         }
-       
+        .footer-container {
+  padding: 3rem 0;
+  background-color: #000;
+}
+.redes{
+    font-size: 1.3rem
+}
+
+.footer-content {
+  max-width: 1004px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.footer-section {
+  flex-basis: calc(33.33% - 3rem);
+  padding: -1rem;
+}
+
+.footer-heading {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #4A1D86;
+  margin-bottom: 0.8rem;
+}
+
+
+.terms-link:hover {
+    color: #4A1D86;
+  /* O cualquier otro efecto que desees */
+}
+.footer-link {
+  margin-bottom: 0.5rem;
+  color: #d3d3d3;
+  text-decoration: none;
+  display: block;
+}
+
+/* icons */
+.hover-effect2 {
+  min-height: 126px;
+
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hover-effect2 ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.hover-effect2 ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.hover-effect2 ul li a {
+  font-size: 20px;
+  color: #fff;
+  line-height: 100px;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: #6A1B9A;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-transition: all .6s ease;
+  -moz-transition: all .6s ease;
+  -ms-transition: all .6s ease;
+  -o-transition: all .6s ease;
+  transition: all .6s ease;
+}
+
+.hover-effect2 ul li:hover a {
+  border-radius: 0%;
+  background: #6A1B9A;
+}
+
+
+.footer-links {
+    color: #d3d3d3;
+    margin-top: 3rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center; /* Centra verticalmente los enlaces */
+    }
+
+    .footer-center {
+        text-align: center;
+    }
+
+
+
+
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    flex-basis: 100%;
+    margin-bottom: 1rem;
+    text-align: center;
+
+  }
+  .footer-link,
+  .footer-link button {
+    margin: 0.5rem auto;
+  }
+  .footer-links {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-center,
+        .footer-right {
+            width: 100%; /* Ancho completo en dispositivos móviles */
+            margin-bottom: 0.5rem; /* Espaciado inferior en dispositivos móviles */
+        }
+}
     </style>
 </head>
 <body>
@@ -96,144 +227,78 @@
 @include('layouts.instagram')
 
 <!-- Footer -->
-<footer class="text-center text-lg-start bg-gray-950 text-muted">
-  <!-- Section: Social media -->
-  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-    <!-- Left -->
-    <div class="me-5 d-none d-lg-block">
-      <span class="font-site">Todas nuestras redes sociales:</span>
-    </div>
-    <!-- Left -->
-
-    <!-- Right -->
-    <div>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <!-- Right -->
-  </section>
-  <!-- Section: Social media -->
-
-  <!-- Section: Links  -->
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
-      <div class="row mt-3">
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <!-- Content -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            <img src="https://i.postimg.cc/3J2pcLrw/logo.png" class="logo-img-footer" alt="Kool frenzy Logo Footer"/>  Kool Frenzy
-          </h6>
-          <p>
-            Diseños únicos que no vas a encontrar en cualquier tienda, vos también podes personalizar tu estilo.
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="font-site text-uppercase fw-bold mb-4">
-            Contenido
-          </h6>
-
-          <p class="text-reset">
-            <form action="/product/index" method="GET">
-              @csrf 
-            <button class="text-reset">Productos</button>           
-        </form>
-         </p>
-
-           <p class="text-reset">
-          <form action="/product/category" method="GET">
-            @csrf              
-            <input type="hidden" name="category" id="category" value="remera"/>
-            <button  class="text-reset">Remeras</button>     
-         </form>
-        </p> 
 
 
-          <p class="text-reset">
-            <form action="/product/category" method="GET">
-            @csrf  
-            <input type="hidden" name="category" id="category" value="buzo"/>
-            <button  type="submit" class="text-reset">Buzos</button>   
-          </form>
-          </p>
-          <p>
-            <a href="{{route('contact')}}" class="text-reset">Hablemos</a>
-         </p>
-          <p>
-            <a href="{{route('design')}}" class="text-reset">Diseños</a>
-          </p>
-          <form action="/product/tendence" method="GET">
-            @csrf
-          <p>
-            <button href="#" class="text-reset">Tendencias</button>         
-          </p>
-        </form>
-        </div>
-        <!-- Grid column -->
 
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="font-site text-uppercase fw-bold mb-4">
-            Legales
-          </h6>
-          <p>
-            <a href="{{ route('terms') }}" class="text-reset">Term. y Condiciones</a>
-          </p>
-          
-         
-        </div>
-        <!-- Grid column -->
 
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          <!-- Links -->
-          <h6 class="font-site text-uppercase fw-bold mb-4">Contacto</h6>
-          <p><i class="fas fa-home me-3"></i> Buenos Aires, Argentina</p>
-          <p>
-            <i class="fas fa-envelope me-3"></i>
-            info@example.com
-          </p>
-          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
-        </div>
-        <!-- Grid column -->
+<footer class="footer-container">
+    <div class="footer-content">
+      <div class="footer-section">
+         <img src="https://i.postimg.cc/3J2pcLrw/logo.png" class="logo-img-footer" alt="Kool frenzy Logo Footer"/>
+        <h3 class="footer-heading font-site">Kool Frenzy</h3>
+        <p style="color:#d3d3d3">
+          Diseños únicos que no vas a encontrar en cualquier tienda, vos también podes personalizar tu estilo.
+        </p>
       </div>
-      <!-- Grid row -->
-    </div>
-  </section>
-  <!-- Section: Links  -->
 
-  <!-- Copyright -->
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2023 Copyright: Design by
-    <a class="text-reset fw-bold" href="https://epsiweb.com/" target="new">Epsiweb</a>
-  </div>
-  <!-- Copyright -->
-</footer>
+      <div class="footer-section">
+        <h4 class="footer-heading font-site">Productos</h4>
+        <form action="/product/index" method="GET">
+          @csrf
+          <button type="submit" class="footer-link">Productos</button>
+        </form>
+        <form action="/product/category" method="GET">
+          @csrf
+          <input type="hidden" name="category" id="category" value="remera"/>
+          <button type="submit" class="footer-link">Remeras</button>
+        </form>
+        <form action="/product/category" method="GET">
+          @csrf
+          <input type="hidden" name="category" id="category" value="buzo"/>
+          <button type="submit" class="footer-link">Buzos</button>
+        </form>
+        <a href="{{route('contact')}}" class="footer-link">Hablemos</a>
+        <a href="{{route('design')}}" class="footer-link">Diseños</a>
+        <form action="/product/tendence" method="GET">
+          @csrf
+          <button type="submit" class="footer-link">Tendencias</button>
+        </form>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="footer-heading font-site">Contacto</h4>
+        <p style="color:#d3d3d3"><i class="fas fa-home footer-icon mb-3"></i> Buenos Aires, Argentina</p>
+        <p style="color:#d3d3d3"><i class="fas fa-envelope footer-icon mb-3"></i> info@example.com</p>
+        <p style="color:#d3d3d3"><i class="fas fa-phone footer-icon mb-3"></i> + 01 234 567 88</p>
+        <p style="color:#d3d3d3"><i class="fas fa-print footer-icon"></i> + 01 234 567 89</p>
+      </div>
+    </div>
+
+    <p style="color:#4A1D86" class="text-sm text-gray-500 mt-2 text-center font-site redes ">Todas nuestras redes sociales</p>
+    <div class="hover-effect2">
+        <ul>
+          <li><a href="#." title="Facebook"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#." title="Twitter"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#." title="Google Plus"><i class="fa fa-google-plus"></i></a></li>
+
+        </ul>
+      </div>
+
+    <div class="footer-section">
+        <!-- ... (contenido anterior) ... -->
+        <div class="footer-links container">
+            <div class="footer-center">
+                <p class="design-by">&copy; 2023 Design by <a class="terms-link" href="https://epsiweb.com/" target="_blank">Epsiweb</a></p>
+            </div>
+            <div class="footer-right">
+                <a href="{{ route('terms') }}" class="terms-link">Términos y Condiciones</a>
+            </div>
+        </div>
+    </div>
+  </footer>
 <!--/ Footer -->
 <!-- MDB -->
+<script src="https://kit.fontawesome.com/39f24fdfe8.js" crossorigin="anonymous"></script>
 <script
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"
